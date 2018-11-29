@@ -73,10 +73,12 @@ class Tools extends CI_Controller {
         $path = APPPATH . "database/migrations/$timestamp" . "_" . "$name.php";
 
         $my_migration = fopen($path, "w") or die("Unable to create migration file!");
+        
+        $newname = $name."_".$timestamp;
 
         $migration_template = "<?php
 
-class Migration_$name extends CI_Migration {
+class Migration_$newname extends CI_Migration {
 
     public function up() {
         \$this->load->helper('db_helper');

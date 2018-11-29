@@ -1,6 +1,6 @@
 <?php
 
-class Migration_insert_m_form extends CI_Migration {
+class Migration_insert_m_form_20181129105921 extends CI_Migration {
 
     private $table = 'm_form';
     public function up() {
