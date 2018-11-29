@@ -120,6 +120,7 @@ class Paging {
         $resource['res_master_uom'] = $CI->lang->line('ui_master_uom');
         $resource['res_warehouse'] = $CI->lang->line('ui_warehouse');
         $resource['res_sitestatus'] = $CI->lang->line('ui_sitestatus');
+        $resource['res_class'] = $CI->lang->line('ui_class');
 
         $resource['flag'] = base_url('assets/bootstrapdashboard/img/flags/16/US.png');
         if($_SESSION['language']['language'] === 'indonesia'){

@@ -78,6 +78,21 @@ $route['muser/activate/(:num)'] = 'm_user/activate/$1';
 $route['changePassword'] = 'm_user/changePassword';
 $route['saveChangePassword'] = 'm_user/saveNewPassword';
 
+
+$route['mkelas'] = 'm_kelas';
+$route['mkelas/add'] = 'm_kelas/add';
+$route['mkelas/addsave'] = 'm_kelas/addsave';
+$route['mkelas/edit/(:num)'] = 'm_kelas/edit/$1';
+$route['mkelas/editsave'] = 'm_kelas/editsave';
+$route['mkelas/delete/(:num)'] = 'm_kelas/delete/$1';
+
+$route['mschool'] = 'm_school';
+$route['mschool/add'] = 'm_school/add';
+$route['mschool/addsave'] = 'm_school/addsave';
+$route['mschool/edit/(:num)'] = 'm_school/edit/$1';
+$route['mschool/editsave'] = 'm_school/editsave';
+$route['mschool/delete/(:num)'] = 'm_school/delete/$1';
+
 //API
 $route['api/mdisaster']['GET'] = 'api_mdisaster/get_disaster';
 $route['api/mdisaster/(:any)/(:any)'] = 'api_mdisaster/get_disaster/$1/$2';
