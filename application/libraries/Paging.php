@@ -16,7 +16,7 @@ class Paging {
         $data["m_school"] = 1;
         $data["m_kelas"] = 2;
         $data["m_groupuser"] = 3;
-        $data["m_province"] = 4;
+        $data["m_user"] = 4;
         $data["m_city"] = 5;
         $data["m_village"] = 6;
         $data["m_subcity"] = 7;
