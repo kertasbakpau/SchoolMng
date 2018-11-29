@@ -10,7 +10,7 @@
       <section>
         <div class="container-fluid">
           <!-- Page Header-->
-          <header> 
+          <header class="header-custom"> 
             <h1 class="h3 display"><i class="fa fa-user"></i> <?php echo $resource['res_master_groupuser']?></h1>
           </header>
           <div class="row">

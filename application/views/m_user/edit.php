@@ -10,7 +10,7 @@
       <section class="forms">
         <div class="container-fluid">
           <!-- Page Header-->
-          <header> 
+          <header class="header-custom"> 
             <h1 class="h3 display"><i class="fa fa-fire"></i><?php echo $resource['res_master_user']?></h1>
           </header>
           <div class="row">
@@ -126,7 +126,7 @@
     var search = $('#searchInput').val();
     $.ajax({
       type: "POST",
-      url: "<?php echo base_url('G_groupuser/groupusermodal')?>",
+      url: "<?php echo base_url('M_groupuser/groupusermodal')?>",
       data:{
             page: page,
             search : search
@@ -134,7 +134,7 @@
       success:function(data){
         var groupuser = $.parseJSON(data);
         console.log(groupuser);
-        var detail = groupuser['g_groupuser']['modeldetailmodal'];
+        var detail = groupuser['m_groupuser']['modeldetailmodal'];
         for(var i = 0; i < detail.length; i++)
         {
           $("#tblGroupUserLookUp").append("<tr onclick='chooseGroupName("+detail[i].Id+","+'"'+detail[i].GroupName+'"'+");'><td>" + detail[i].GroupName + "</td></tr>");
@@ -144,26 +144,26 @@
         var pages = "";
         var next = "";
         var append = "";
-        if(groupuser['g_groupuser']['currentpagemodal'] > 3)
+        if(groupuser['m_groupuser']['currentpagemodal'] > 3)
         {
           previous += "<li class='page-item'>";
-          previous += "<a class='page-link' href='#' onclick = 'getModalGroup("+(groupuser['g_groupuser']['currentpagemodal']-1)+")' aria-label='Previous'>";
+          previous += "<a class='page-link' href='#' onclick = 'getModalGroup("+(groupuser['m_groupuser']['currentpagemodal']-1)+")' aria-label='Previous'>";
           previous += "<span aria-hidden='true'>&laquo;</span>";
           previous += "<span class='sr-only'>Previous</span>";
           previous += "</a>" ;
           previous += "</li>";
         }
 
-        for (var i = groupuser['g_groupuser']['firstpagemodal'] ; i <= groupuser['g_groupuser']['lastpagemodal']; i++){
+        for (var i = groupuser['m_groupuser']['firstpagemodal'] ; i <= groupuser['m_groupuser']['lastpagemodal']; i++){
           pages += " <li class='page-item' >";
           pages += "<a class='page-link' href='#' onclick = 'getModalGroup("+i+")'>"+i+"</a>";
           pages += "</li>";
         }
 
-        if(groupuser['g_groupuser']['currentpagemodal'] < groupuser['g_groupuser']['totalpagemodal'] - 2)
+        if(groupuser['m_groupuser']['currentpagemodal'] < groupuser['m_groupuser']['totalpagemodal'] - 2)
         {
           next += "<li class='page-item'>";
-          next += "<a class='page-link' href='#' onclick = 'getModalGroup("+(1+groupuser['g_groupuser']['currentpagemodal'])+")' aria-label='Next'>";
+          next += "<a class='page-link' href='#' onclick = 'getModalGroup("+(1+groupuser['m_groupuser']['currentpagemodal'])+")' aria-label='Next'>";
           next += "<span aria-hidden='true'>&raquo;</span>";
           next += "<span class='sr-only'>Next</span>";
           next += "</a>" ;
@@ -181,7 +181,7 @@
         append += "</nav>";
         append += "</div>";
         append += "<div class = 'col-lg-6 icon-custom-table-header'>";
-        append +="Total Data : "+groupuser['g_groupuser']['totalrowmodal'];
+        append +="Total Data : "+groupuser['m_groupuser']['totalrowmodal'];
         append += "</div>";
         append += "</div>";
         
