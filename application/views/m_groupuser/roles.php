@@ -23,7 +23,7 @@
                     </div>
                     <div class = "col-lg-8 icon-custom-table-header">
                         <!-- <a id = "btnSave" class = "icon-custom-table-detail" href="#"><i class="fa fa-save"></i> <?php echo $resource['res_save']?></a> -->
-                        <a class = "icon-custom-table-detail" href="<?php echo base_url('ggroupuser');?>"><i class="fa fa-table"></i> Index</a>
+                        <a class = "icon-custom-table-detail" href="<?php echo base_url('mgroupuser');?>"><i class="fa fa-table"></i> Index</a>
                     </div>
                   </div>
 								</div>
