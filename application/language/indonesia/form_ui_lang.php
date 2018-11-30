@@ -10,6 +10,7 @@ $lang['ui_master_city'] = "Master Kabupaten";
 $lang['ui_master_user'] = "Master Pengguna";
 $lang['ui_user'] = "Pengguna";
 $lang['ui_master_groupuser'] = "Master Group User";
+$lang['ui_master_kelas'] = "Master Class";
 $lang['ui_group_user'] = "Grup Pengguna";
 $lang['ui_data'] = "Data";
 $lang['ui_add'] = "Tambah";

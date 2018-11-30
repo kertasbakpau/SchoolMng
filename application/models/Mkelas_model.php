@@ -41,13 +41,31 @@ class Mkelas_model extends CI_Model {
         {
             $this->db->like('Nama', $search);
         }
-        $this->db->order_by('IOn','ASC');
+        $this->db->order_by('Ion','ASC');
         $this->db->limit($pagesize, ($page-1)*$pagesize);
         $query = $this->db->get();
 
         return $query->result();
 
     }
+
+    public function get_role($groupid)
+    {
+        //where 
+        //$group = array($groupid, null);
+
+        $this->db->select('*');
+        $this->db->from('view_m_accessrole');
+        $this->db->where('GroupId', $groupid);
+        $this->db->or_where('GroupId', null);
+        $this->db->order_by('ClassName', 'ASC');
+        $this->db->order_by('Header', 'DESC');
+        $this->db->order_by('FormName', 'ASC');
+        $query = $this->db->get();
+        
+        return $query->result();
+    }
+
 
     public function save_data($data)
     {
@@ -74,12 +92,12 @@ class Mkelas_model extends CI_Model {
     public function create_object($id, $nama, $ion, $iby, $uon, $uby)
     {
         $data = array(
-            'Id' => $id,
-            'Nama' => $nama,
-            'IOn' => $ion,
-            'IBy' => $iby,
-            'UOn' => $uon,
-            'UBy' => $uby,
+            'id' => $id,
+            'nama' => $nama,
+            'ion' => $ion,
+            'iby' => $iby,
+            'ion' => $uon,
+            'uby' => $uby,
         );
 
         return $data;
@@ -129,10 +147,89 @@ class Mkelas_model extends CI_Model {
         return $warning;
     }
 
+        public function save_role($data)
+    {
+        $this->db->select('*');
+        $this->db->from('m_accessrole');
+        $this->db->where('GroupId', $data['groupid']);
+        $this->db->where('FormId', $data['formid']);
+        $query = $this->db->get()->row();
+        if($query)
+        {
+            $this->db->where('GroupId', $data['groupid']);
+            $this->db->where('FormId', $data['formid']);
+            $this->db->update('m_accessrole', $data);
+        }
+        else
+        {
+            $this->db->insert('m_accessrole', $data);
+        }
+    }
+
+    public function create_object_role_tabel($groupid, $formid, $read, $write, $delete, $print)
+    {
+        $data = array(
+            'groupid' => $groupid,
+            'formid' => $formid,
+            'read' => $read,
+            'write' => $write,
+            'delete' => $delete,
+            'print' => $print
+        );
+
+        return $data;
+    }
+
+    public function create_object_role($groupid, $formid, $formname, $aliasname, $read, $write, $delete, $print)
+    {
+        $data = array(
+            'groupid' => $groupid,
+            'formid' => $formid,
+            'formname' => $formname,
+            'aliasname' => $aliasname,
+            'read' => $read,
+            'write' => $write,
+            'delete' => $delete,
+            'print' => $print
+        );
+
+        return $data;
+    }
+
+public function has_role($groupid, $formid, $role)
+    {
+        $permitted = false;
+        $this->db->select('*');
+        $this->db->from('m_accessrole');
+        $this->db->where('GroupId', $groupid);
+        $this->db->where('FormId', $formid);
+        $this->db->where($role, 1);
+        $query = $this->db->get();
+        $result = $query->row();
+        if($result)
+        {
+            $permitted = true;
+        }
+
+        return $permitted;
+    }
+
+
+public function is_permitted($groupid = null, $formid = null, $role = null)
+    {
+        $permitted = false;
+        if($this->paging->is_superadmin($_SESSION['userdata']['username'])
+            ||  $this->has_role($groupid,$formid,$role)
+        )
+        {
+            $permitted = true;
+        }
+        return $permitted;
+    }
 
     public function set_resources()
     {
-        $resource['res_master_groupuser'] = $this->lang->line('ui_master_groupuser');
+        $resource['res_master_kelas'] = $this->lang->line('ui_master_kelas');
         $resource['res_groupuser'] = $this->lang->line('ui_groupuser');
         $resource['res_data'] =  $this->lang->line('ui_data');
         $resource['res_add'] =  $this->lang->line('ui_add');
