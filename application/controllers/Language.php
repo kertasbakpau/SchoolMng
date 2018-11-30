@@ -5,7 +5,7 @@ class Language extends CI_Controller
     {
         parent::__construct();
         //$this->load->database('naturedisaster', TRUE);
-        $this->load->model(array('Language_model','Muser_model'));
+        $this->load->model(array('Muser_model'));
         $this->load->library('session');
 
     }
