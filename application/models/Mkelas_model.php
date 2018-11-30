@@ -131,38 +131,6 @@ class Mkelas_model extends CI_Model {
     }
 
         
-
-public function has_role($groupid, $formid, $role)
-    {
-        $permitted = false;
-        $this->db->select('*');
-        $this->db->from('m_accessrole');
-        $this->db->where('GroupId', $groupid);
-        $this->db->where('FormId', $formid);
-        $this->db->where($role, 1);
-        $query = $this->db->get();
-        $result = $query->row();
-        if($result)
-        {
-            $permitted = true;
-        }
-
-        return $permitted;
-    }
-
-
-public function is_permitted($groupid = null, $formid = null, $role = null)
-    {
-        $permitted = false;
-        if($this->paging->is_superadmin($_SESSION['userdata']['username'])
-            ||  $this->has_role($groupid,$formid,$role)
-        )
-        {
-            $permitted = true;
-        }
-        return $permitted;
-    }
-
     public function set_resources()
     {
         $resource['res_master_kelas'] = $this->lang->line('ui_master_kelas');
