@@ -118,7 +118,7 @@
     $("#searchbutton").on("click",function() {
         var search = $("#search").val();
         alert(search);
-        //window.location =" <?php echo base_url('g_groupuser');?>?search="+search;
+        //window.location =" <?php echo base_url('m_groupuser');?>?search="+search;
     });
 
     $("#btnSave").on("click",function() {
@@ -128,7 +128,7 @@
         for (i = 1; i < rowLength; i++) {
         $.ajax({
             type:"POST",
-            url:"<?php echo base_url('G_groupuser/saverole')?>",
+            url:"<?php echo base_url('M_groupuser/saverole')?>",
             data:{
                 groupid: <?php echo $modelheader->Id?>,
                 formid : document.getElementById("td"+i+"formid").innerHTML,
@@ -148,7 +148,7 @@
         var numbid = this.value.split("~")[1];
         $.ajax({
             type:"POST",
-            url:"<?php echo base_url('G_groupuser/saverole')?>",
+            url:"<?php echo base_url('M_groupuser/saverole')?>",
             data:{
                 groupid: <?php echo $modelheader->Id?>,
                 formid : document.getElementById("td"+numbid+"formid").innerHTML,

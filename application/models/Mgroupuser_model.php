@@ -61,6 +61,7 @@ class Mgroupuser_model extends CI_Model {
         $this->db->or_where('GroupId', null);
         $this->db->order_by('ClassName', 'ASC');
         $this->db->order_by('Header', 'DESC');
+        $this->db->order_by('FormName', 'ASC');
         $query = $this->db->get();
         
         return $query->result();
