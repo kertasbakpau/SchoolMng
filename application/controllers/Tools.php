@@ -68,13 +68,14 @@ class Tools extends CI_Controller {
         $date = new DateTime();
         $timestamp = $date->format('YmdHis');
 
-        $table_name = strtolower($name);
+        $newname = $name.$timestamp;
 
-        $path = APPPATH . "database/migrations/$timestamp" . "_" . "$name.php";
+        $table_name = strtolower($newname);
+
+        $path = APPPATH . "database/migrations/$timestamp" . "_" . "$newname.php";
 
         $my_migration = fopen($path, "w") or die("Unable to create migration file!");
         
-        $newname = $name."_".$timestamp;
 
         $migration_template = "<?php
 

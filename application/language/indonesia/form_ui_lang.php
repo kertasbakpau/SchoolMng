@@ -108,6 +108,11 @@ $lang['ui_live'] = "Berjalan";
 $lang['ui_maintenance'] = "Perbaikan";
 $lang['ui_class'] = "Kelas";
 $lang['ui_school'] = "Sekolah";
+$lang['ui_master_schoolyear'] = "Master Tahun Ajaran";
+$lang['ui_schoolyear'] = "Tahun Ajaran";
+$lang['ui_fromyear'] = "Dari Tahun";
+$lang['ui_toyear'] = "Sampai Tahun";
+$lang['ui_monthstart'] = "Bulan Mulai";
 $lang['ui_page_maintenance'] = "Laman web sedang dalam perbaikan, kami akan menginformasikan jika perbaikan telah selesai.";
 
 $lang['msg_orderuomconvertion'] = "Urutkan Perubahan ukuran dari paling BESAR ke KECIL. contoh : Box ke Pack (nomor urut = 1), Pack ke Pcs (nomor urut = 2) dan seterusnya";

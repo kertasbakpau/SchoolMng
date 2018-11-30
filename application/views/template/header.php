@@ -162,6 +162,7 @@
             <ul class="list-unstyled">
               <li><a href="#exampledropdownDropdown" aria-expanded="false" data-toggle="collapse"> <i class="icon-interface-windows"></i><?php echo $resource['res_general']?></a>
                 <ul id="exampledropdownDropdown" class="collapse list-unstyled ">
+                  <li><a href="<?php echo base_url('mschoolyear');?>"><i class="icon-user"></i><?php echo $resource['res_schoolyear']?></a></li>
                   <li><a href="<?php echo base_url('mkelas');?>"><i class="icon-user"></i><?php echo $resource['res_class']?></a></li>
                 </ul>
               </li>

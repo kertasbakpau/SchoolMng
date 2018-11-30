@@ -14,8 +14,8 @@ class Language extends CI_Controller
     {
         $language = "english";
         if(!empty($_GET['language']))
-        {
-            $language = array(
+            {
+                $language = array(
                 'language' => $_GET['language']
             );
             $this->session->set_userdata("language", $language);

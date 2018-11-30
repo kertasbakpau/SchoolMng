@@ -25,7 +25,7 @@ class Login extends CI_Controller
         $password = $this->input->post('loginPassword');
         
         $query = $this->Muser_model->get_sigle_data_user($username, $password);
-        echo json_encode($query);
+        //echo json_encode($query);
         if ($query)
         {
             if($query->IsLoggedIn == 0){

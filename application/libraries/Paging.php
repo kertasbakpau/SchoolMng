@@ -17,7 +17,7 @@ class Paging {
         $data["m_kelas"] = 2;
         $data["m_groupuser"] = 3;
         $data["m_user"] = 4;
-        $data["m_city"] = 5;
+        $data["m_schoolyear"] = 5;
         $data["m_village"] = 6;
         $data["m_subcity"] = 7;
         $data["m_familycard"] = 8;
@@ -121,6 +121,7 @@ class Paging {
         $resource['res_warehouse'] = $CI->lang->line('ui_warehouse');
         $resource['res_sitestatus'] = $CI->lang->line('ui_sitestatus');
         $resource['res_class'] = $CI->lang->line('ui_class');
+        $resource['res_schoolyear'] = $CI->lang->line('ui_schoolyear');
 
         $resource['flag'] = base_url('assets/bootstrapdashboard/img/flags/16/US.png');
         if($_SESSION['language']['language'] === 'indonesia'){
