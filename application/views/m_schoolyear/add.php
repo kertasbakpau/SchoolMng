@@ -42,18 +42,37 @@
                         </div>
                       </div>
                     </div>
-                    <!-- <div class="form-group">
-                      <div class="row">
-                        <div class="col">
-                          <label><?php echo $resource['res_fromyear']?></label>
-                          <input id = "fromyear" placeholder="<?php echo $resource['res_fromyear']?>" type="number" class="form-control" name = "fromyear"  value="<?php echo $model['fromyear']?>">
+                    <div class="form-group">     
+                    <div class="row">
+                        <div class="col">  
+                        <label><?php echo $resource['res_marriagestatus']?></label>
+                        <select id = "marriagestatus" name="marriagestatus" class="form-control">
+                          <?php 	
+                          foreach ($enums['marriageenum'] as $value)
+                          { 
+                          ?>
+                            <option value ="<?php echo $value->Value?>"><?php echo $resource[$value->Resource]?></option>
+                          <?php 
+                          }
+                          ?>
+                        </select>
                         </div>
-                        <div class="col">
-                          <label><?php echo $resource['res_toyear']?></label>
-                          <input id="toyear" type="number" placeholder="<?php echo $resource['res_toyear']?>" class="form-control" name = "toyear" value="<?php echo $model['toyear']?>">
+                        <div class="col">  
+                          
+                        <label><?php echo $resource['res_familystatus']?></label>
+                        <select id = "familystatus" name="familystatus" class="form-control">
+                          <?php 	
+                          foreach ($enums['familyenum'] as $value)
+                          { 
+                          ?>
+                            <option value ="<?php echo $value->Value?>"><?php echo $resource[$value->Resource]?></option>
+                          <?php 
+                          }
+                          ?>
+                        </select>
                         </div>
-                      </div>
-                    </div> -->
+                    </div>
+                  </div>
                     <div class="form-group">       
                       <input type="submit" value="<?php echo $resource['res_save']?>" class="btn btn-primary">
                     </div>
