@@ -6,7 +6,7 @@ class M_kelas extends CI_Controller
     {
         parent::__construct();
         //$this->load->database('naturedisaster', TRUE);
-        $this->load->model('Mkelas_model');
+        $this->load->model(array('Mkelas_model','Mgroupuser_model'));
         $this->load->library(array('paging', 'session','helpers'));
         $this->load->helper('form');
         $this->paging->is_session_set();
@@ -16,7 +16,7 @@ class M_kelas extends CI_Controller
     {
         //echo $_SESSION['userdata']['username'];
         $form = $this->paging->get_form_name_id();
-        if($this->Mkelas_model->is_permitted($_SESSION['userdata']['id'],$form['m_kelas'],'Read'))
+        if($this->Mgroupuser_model->is_permitted($_SESSION['userdata']['groupid'],$form['m_groupuser'],'Read'))
         {
             $page = 1;
             $search = "";
@@ -66,7 +66,7 @@ class M_kelas extends CI_Controller
     public function add()
     {
         $form = $this->paging->get_form_name_id();
-        if($this->Mkelas_model->is_permitted($_SESSION['userdata']['id'],$form['m_kelas'],'Write'))
+        if($this->Mgroupuser_model->is_permitted($_SESSION['userdata']['groupid'],$form['m_groupuser'],'Write'))
         {
             $resource = $this->Mkelas_model->set_resources();
             $model = $this->Mkelas_model->create_object(null, null, null, null, null,  null);
@@ -113,7 +113,7 @@ class M_kelas extends CI_Controller
     public function edit($id)
     {
         $form = $this->paging->get_form_name_id();
-        if($this->Mkelas_model->is_permitted($_SESSION['userdata']['id'],$form['m_kelas'],'Write'))
+        if($this->Mgroupuser_model->is_permitted($_SESSION['userdata']['groupid'],$form['m_groupuser'],'Write'))
         {
             $resource = $this->Mkelas_model->set_resources();
             $edit = $this->Mkelas_model->get_data_by_id($id);
@@ -162,7 +162,7 @@ class M_kelas extends CI_Controller
     public function delete($id)
     {
         $form = $this->paging->get_form_name_id();
-        if($this->Mkelas_model->is_permitted($_SESSION['userdata']['id'],$form['m_kelas'],'Delete'))
+        if($this->Mgroupuser_model->is_permitted($_SESSION['userdata']['groupid'],$form['m_groupuser'],'Delete'))
         {
             $delete = $this->Mkelas_model->delete_data($id);
             if(isset($delete)){

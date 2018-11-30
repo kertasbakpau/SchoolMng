@@ -49,23 +49,6 @@ class Mkelas_model extends CI_Model {
 
     }
 
-    public function get_role($groupid)
-    {
-        //where 
-        //$group = array($groupid, null);
-
-        $this->db->select('*');
-        $this->db->from('view_m_accessrole');
-        $this->db->where('GroupId', $groupid);
-        $this->db->or_where('GroupId', null);
-        $this->db->order_by('ClassName', 'ASC');
-        $this->db->order_by('Header', 'DESC');
-        $this->db->order_by('FormName', 'ASC');
-        $query = $this->db->get();
-        
-        return $query->result();
-    }
-
 
     public function save_data($data)
     {
@@ -147,54 +130,7 @@ class Mkelas_model extends CI_Model {
         return $warning;
     }
 
-        public function save_role($data)
-    {
-        $this->db->select('*');
-        $this->db->from('m_accessrole');
-        $this->db->where('GroupId', $data['groupid']);
-        $this->db->where('FormId', $data['formid']);
-        $query = $this->db->get()->row();
-        if($query)
-        {
-            $this->db->where('GroupId', $data['groupid']);
-            $this->db->where('FormId', $data['formid']);
-            $this->db->update('m_accessrole', $data);
-        }
-        else
-        {
-            $this->db->insert('m_accessrole', $data);
-        }
-    }
-
-    public function create_object_role_tabel($groupid, $formid, $read, $write, $delete, $print)
-    {
-        $data = array(
-            'groupid' => $groupid,
-            'formid' => $formid,
-            'read' => $read,
-            'write' => $write,
-            'delete' => $delete,
-            'print' => $print
-        );
-
-        return $data;
-    }
-
-    public function create_object_role($groupid, $formid, $formname, $aliasname, $read, $write, $delete, $print)
-    {
-        $data = array(
-            'groupid' => $groupid,
-            'formid' => $formid,
-            'formname' => $formname,
-            'aliasname' => $aliasname,
-            'read' => $read,
-            'write' => $write,
-            'delete' => $delete,
-            'print' => $print
-        );
-
-        return $data;
-    }
+        
 
 public function has_role($groupid, $formid, $role)
     {
