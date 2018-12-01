@@ -117,6 +117,18 @@ $lang['ui_page_maintenance'] = "Laman web sedang dalam perbaikan, kami akan meng
 
 $lang['msg_orderuomconvertion'] = "Urutkan Perubahan ukuran dari paling BESAR ke KECIL. contoh : Box ke Pack (nomor urut = 1), Pack ke Pcs (nomor urut = 2) dan seterusnya";
 
+$lang['ui_january'] = "Januari";
+$lang['ui_february'] = "Februari";
+$lang['ui_march'] = "Maret";
+$lang['ui_april'] = "April";
+$lang['ui_may'] = "Mei";
+$lang['ui_june'] = "Juni";
+$lang['ui_july'] = "Juli";
+$lang['ui_august'] = "Agustus";
+$lang['ui_september'] = "September";
+$lang['ui_october'] = "Oktober";
+$lang['ui_november'] = "November";
+$lang['ui_december'] = "Desember";
 
 // M_SCHOOL
 $lang['ui_master_school'] 	= "Master Sekolah";

@@ -33,13 +33,9 @@ class Paging {
 
     public function get_enum_name()
     {
-        $data["gender"] = 1;
-        $data["religion"] = 2;
-        $data["education"] = 3;
-        $data["marriagestatus"] = 4;
-        $data["familystatus"] = 5;
-        $data["citizenship"] = 6;
-        $data["sitestatus"] = 7;
+        $data["months"] = 1;
+        $data["gender"] = 2;
+        $data["religion"] = 3;
         return $data;
     }
 

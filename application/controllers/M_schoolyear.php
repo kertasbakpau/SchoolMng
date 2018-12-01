@@ -6,7 +6,7 @@ class M_schoolyear extends CI_Controller
     {
         parent::__construct();
         //$this->load->database('naturedisaster', TRUE);
-        $this->load->model(array('Mschoolyear_model', 'Mgroupuser_model'));
+        $this->load->model(array('Mschoolyear_model', 'Mgroupuser_model','Menum_model'));
         $this->load->library(array('paging', 'session','helpers'));
         $this->load->helper('form');
         $this->paging->is_session_set();
@@ -60,7 +60,7 @@ class M_schoolyear extends CI_Controller
 
         $data =  $this->paging->set_data_page_modal($resource, $datapages, $rows, $page, $search, null, 'm_schoolyear');      
         
-        echo json_encode($data);
+        echo json_encode($data);    
     }
 
     public function add()
@@ -68,9 +68,11 @@ class M_schoolyear extends CI_Controller
         $form = $this->paging->get_form_name_id();
         if($this->Mgroupuser_model->is_permitted($_SESSION['userdata']['id'],$form['m_schoolyear'],'Write'))
         {
+            $enum =  $this->paging->get_enum_name();
+            $enums['monthsenum'] = $this->Menum_model->get_data_by_id($enum['months']);
             $resource = $this->Mschoolyear_model->set_resources();
             $model = $this->Mschoolyear_model->create_object(null, null, null, null, null, null, null, null, null, null);
-            $data =  $this->paging->set_data_page_add($resource, $model);
+            $data =  $this->paging->set_data_page_add($resource, $model, $enums);
             $this->loadview('m_schoolyear/add', $data);  
         }
         else
