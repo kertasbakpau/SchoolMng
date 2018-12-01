@@ -1,12 +1,12 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
-class M_kelas extends CI_Controller
+class M_schoolyear extends CI_Controller
 {
     public function __construct()
     {
         parent::__construct();
         //$this->load->database('naturedisaster', TRUE);
-        $this->load->model(array('Mkelas_model','Mgroupuser_model'));
+        $this->load->model(array('Mschoolyear_model', 'Mgroupuser_model'));
         $this->load->library(array('paging', 'session','helpers'));
         $this->load->helper('form');
         $this->paging->is_session_set();
@@ -16,7 +16,7 @@ class M_kelas extends CI_Controller
     {
         //echo $_SESSION['userdata']['username'];
         $form = $this->paging->get_form_name_id();
-        if($this->Mgroupuser_model->is_permitted($_SESSION['userdata']['groupid'],$form['m_groupuser'],'Read'))
+        if($this->Mgroupuser_model->is_permitted($_SESSION['userdata']['id'],$form['m_schoolyear'],'Read'))
         {
             $page = 1;
             $search = "";
@@ -30,15 +30,15 @@ class M_kelas extends CI_Controller
             }
 
             $pagesize = $this->paging->get_config();
-            $resultdata = $this->Mkelas_model->get_alldata();
-            $datapages = $this->Mkelas_model->get_datapages($page,  $pagesize['perpage'], $search);
+            $resultdata = $this->Mschoolyear_model->get_alldata();
+            $datapages = $this->Mschoolyear_model->get_datapages($page,  $pagesize['perpage'], $search);
             $rows = !empty($search) ? count($datapages) : count($resultdata);
 
-            $resource = $this->Mkelas_model->set_resources();
+            $resource = $this->Mschoolyear_model->set_resources();
 
             $data =  $this->paging->set_data_page_index($resource, $datapages, $rows, $page, $search);
             
-            $this->loadview('m_kelas/index', $data);
+            $this->loadview('m_schoolyear/index', $data);
         }
         else
         {   $data['resource'] = $this->paging->set_resources_forbidden_page();
@@ -46,19 +46,19 @@ class M_kelas extends CI_Controller
         }
     }
 
-    public function kelasmodal()
+    public function schoolyearmodal()
     {
         $page = $this->input->post("page");
         $search = $this->input->post("search");
 
         $pagesize = $this->paging->get_config();
-        $resultdata = $this->Mkelas_model->get_alldata();
-        $datapages = $this->Mkelas_model->get_datapages($page,  $pagesize['perpagemodal'], $search);
+        $resultdata = $this->Mschoolyear_model->get_alldata();
+        $datapages = $this->Mschoolyear_model->get_datapages($page,  $pagesize['perpagemodal'], $search);
         $rows = !empty($search) ? count($datapages) : count($resultdata);
 
-        $resource = $this->Mkelas_model->set_resources();
+        $resource = $this->Mschoolyear_model->set_resources();
 
-        $data =  $this->paging->set_data_page_modal($resource, $datapages, $rows, $page, $search, null, 'm_kelas');      
+        $data =  $this->paging->set_data_page_modal($resource, $datapages, $rows, $page, $search, null, 'm_schoolyear');      
         
         echo json_encode($data);
     }
@@ -66,12 +66,12 @@ class M_kelas extends CI_Controller
     public function add()
     {
         $form = $this->paging->get_form_name_id();
-        if($this->Mgroupuser_model->is_permitted($_SESSION['userdata']['groupid'],$form['m_groupuser'],'Write'))
+        if($this->Mgroupuser_model->is_permitted($_SESSION['userdata']['id'],$form['m_schoolyear'],'Write'))
         {
-            $resource = $this->Mkelas_model->set_resources();
-            $model = $this->Mkelas_model->create_object(null, null, null, null, null,  null);
+            $resource = $this->Mschoolyear_model->set_resources();
+            $model = $this->Mschoolyear_model->create_object(null, null, null, null, null, null, null, null, null, null);
             $data =  $this->paging->set_data_page_add($resource, $model);
-            $this->loadview('m_kelas/add', $data);  
+            $this->loadview('m_schoolyear/add', $data);  
         }
         else
         {
@@ -85,41 +85,41 @@ class M_kelas extends CI_Controller
         //$date = new DateTime();
         $warning = array();
         $err_exist = false;
-        $resource = $this->Mkelas_model->set_resources();
+        $resource = $this->Mschoolyear_model->set_resources();
         $name = $this->input->post('named');
         
-        $model = $this->Mkelas_model->create_object(null, $name, null, null, null, null);
+        $model = $this->Mschoolyear_model->create_object(null, $name, null, null, null, null);
 
-        $validate = $this->Mkelas_model->validate($model);
+        $validate = $this->Mschoolyear_model->validate($model);
  
         if($validate)
         {
             $this->session->set_flashdata('add_warning_msg',$validate);
             $data =  $this->paging->set_data_page_add($resource, $model);
-            $this->loadview('m_kelas/add', $data);   
+            $this->loadview('m_schoolyear/add', $data);   
         }
         else{
             $date = date("Y-m-d H:i:s");
             $model['ion'] = $date;
             $model['iby'] = $_SESSION['userdata']['username'];
     
-            $this->Mkelas_model->save_data($model);
+            $this->Mschoolyear_model->save_data($model);
             $successmsg = $this->paging->get_success_message();
             $this->session->set_flashdata('success_msg', $successmsg);
-            redirect('mkelas');
+            redirect('mschoolyear');
         }
     }
 
     public function edit($id)
     {
         $form = $this->paging->get_form_name_id();
-        if($this->Mgroupuser_model->is_permitted($_SESSION['userdata']['groupid'],$form['m_groupuser'],'Write'))
+        if($this->Mgroupuser_model->is_permitted($_SESSION['userdata']['id'],$form['m_schoolyear'],'Write'))
         {
-            $resource = $this->Mkelas_model->set_resources();
-            $edit = $this->Mkelas_model->get_data_by_id($id);
-            $model = $this->Mkelas_model->create_object($edit->Id, $edit->Nama, null, null, null, null);
+            $resource = $this->Mschoolyear_model->set_resources();
+            $edit = $this->Mschoolyear_model->get_data_by_id($id);
+            $model = $this->Mschoolyear_model->create_object($edit->Id, $edit->Nama, null, null, null, null);
             $data =  $this->paging->set_data_page_edit($resource, $model);
-            $this->loadview('m_kelas/edit', $data);  
+            $this->loadview('m_schoolyear/edit', $data);  
         }
         else
         {
@@ -130,20 +130,20 @@ class M_kelas extends CI_Controller
 
     public function editsave()
     {
-        $resource = $this->Mkelas_model->set_resources();
+        $resource = $this->Mschoolyear_model->set_resources();
 
         $name = $this->input->post('named');
 
-        $edit = $this->Mkelas_model->get_data_by_id($this->input->post('id'));
-        $model = $this->Mkelas_model->create_object($edit->Id, $name, $edit->IOn, $edit->IBy, null , null);
-        $oldmodel = $this->Mkelas_model->create_object($edit->Id, $edit->Nama, $edit->IOn, $edit->IBy, $edit->UOn , $edit->UBy);
+        $edit = $this->Mschoolyear_model->get_data_by_id($this->input->post('id'));
+        $model = $this->Mschoolyear_model->create_object($edit->Id, $name, $edit->IOn, $edit->IBy, null , null);
+        $oldmodel = $this->Mschoolyear_model->create_object($edit->Id, $edit->Nama, $edit->IOn, $edit->IBy, $edit->UOn , $edit->UBy);
 
-        $validate = $this->Mkelas_model->validate($model, $oldmodel);
+        $validate = $this->Mschoolyear_model->validate($model, $oldmodel);
         if($validate)
         {
             $this->session->set_flashdata('edit_warning_msg',$validate);
             $data =  $this->paging->set_data_page_edit($resource, $model);
-            $this->loadview('m_kelas/edit', $data);   
+            $this->loadview('m_schoolyear/edit', $data);   
         }
         else
         {
@@ -151,10 +151,10 @@ class M_kelas extends CI_Controller
             $model['uon'] = $date;
             $model['uby'] = $_SESSION['userdata']['username'];
 
-            $this->Mkelas_model->edit_data($model);
+            $this->Mschoolyear_model->edit_data($model);
             $successmsg = $this->paging->get_success_message();
             $this->session->set_flashdata('success_msg', $successmsg);
-            redirect('mkelas');
+            redirect('mschoolyear');
         }
     }
 
@@ -162,9 +162,9 @@ class M_kelas extends CI_Controller
     public function delete($id)
     {
         $form = $this->paging->get_form_name_id();
-        if($this->Mgroupuser_model->is_permitted($_SESSION['userdata']['groupid'],$form['m_groupuser'],'Delete'))
+        if($this->Mgroupuser_model->is_permitted($_SESSION['userdata']['id'],$form['m_schoolyear'],'Delete'))
         {
-            $delete = $this->Mkelas_model->delete_data($id);
+            $delete = $this->Mschoolyear_model->delete_data($id);
             if(isset($delete)){
                 $deletemsg = $this->helpers->get_query_error_message($delete['code']);
                 $this->session->set_flashdata('warning_msg', $deletemsg);
@@ -172,7 +172,7 @@ class M_kelas extends CI_Controller
                 $deletemsg = $this->paging->get_delete_message();
                 $this->session->set_flashdata('delete_msg', $deletemsg);
             }
-            redirect('mkelas');
+            redirect('mschoolyear');
         }
         else
         {   

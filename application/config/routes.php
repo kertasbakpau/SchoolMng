@@ -93,6 +93,13 @@ $route['mschool/edit/(:num)'] = 'm_school/edit/$1';
 $route['mschool/editsave'] = 'm_school/editsave';
 $route['mschool/delete/(:num)'] = 'm_school/delete/$1';
 
+$route['mschoolyear'] = 'm_schoolyear';
+$route['mschoolyear/add'] = 'm_schoolyear/add';
+$route['mschoolyear/addsave'] = 'm_schoolyear/addsave';
+$route['mschoolyear/edit/(:num)'] = 'm_schoolyear/edit/$1';
+$route['mschoolyear/editsave'] = 'm_schoolyear/editsave';
+$route['mschoolyear/delete/(:num)'] = 'm_schoolyear/delete/$1';
+
 //API
 $route['api/mdisaster']['GET'] = 'api_mdisaster/get_disaster';
 $route['api/mdisaster/(:any)/(:any)'] = 'api_mdisaster/get_disaster/$1/$2';
