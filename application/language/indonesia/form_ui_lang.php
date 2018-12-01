@@ -111,3 +111,7 @@ $lang['ui_page_maintenance'] = "Laman web sedang dalam perbaikan, kami akan meng
 
 $lang['msg_orderuomconvertion'] = "Urutkan Perubahan ukuran dari paling BESAR ke KECIL. contoh : Box ke Pack (nomor urut = 1), Pack ke Pcs (nomor urut = 2) dan seterusnya";
 
+
+// M_SCHOOL
+$lang['ui_master_school'] 	= "Master Sekolah";
+$lang['ui_school_name']   	= "Nama Sekolah";
