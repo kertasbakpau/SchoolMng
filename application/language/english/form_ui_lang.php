@@ -121,5 +121,17 @@ $lang['ui_monthstart'] = "Month Start";
 $lang['msg_orderuomconvertion'] = "Please order Unit Convertion from biggest to smallest unit. for example : Box to Pack (order number = 1), Pack to Pcs (order number = 2) and go on";
 
 
+$lang['ui_january'] = "January";
+$lang['ui_february'] = "February";
+$lang['ui_march'] = "March";
+$lang['ui_april'] = "April";
+$lang['ui_may'] = "May";
+$lang['ui_june'] = "June";
+$lang['ui_july'] = "July";
+$lang['ui_august'] = "August";
+$lang['ui_september'] = "September";
+$lang['ui_october'] = "October";
+$lang['ui_november'] = "November";
+$lang['ui_december'] = "December";
 
 

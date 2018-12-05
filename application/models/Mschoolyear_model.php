@@ -167,7 +167,19 @@ class Mschoolyear_model extends CI_Model {
         $resource['res_module'] = $this->lang->line('ui_module');
         $resource['res_fromyear'] = $this->lang->line('ui_fromyear');
         $resource['res_toyear'] = $this->lang->line('ui_toyear');
-        $resource['res_monthstart'] = $this->lang->line('ui_monthstart');
+        $resource['res_monthstart'] = $this->lang->line('ui_monthstart');   
+        $resource['res_january'] = $this->lang->line('ui_january');   
+        $resource['res_february'] = $this->lang->line('ui_february');   
+        $resource['res_march'] = $this->lang->line('ui_march');   
+        $resource['res_april'] = $this->lang->line('ui_april');   
+        $resource['res_may'] = $this->lang->line('ui_may');   
+        $resource['res_june'] = $this->lang->line('ui_june');   
+        $resource['res_july'] = $this->lang->line('ui_july');   
+        $resource['res_august'] = $this->lang->line('ui_august');   
+        $resource['res_september'] = $this->lang->line('ui_september');   
+        $resource['res_october'] = $this->lang->line('ui_october');    
+        $resource['res_november'] = $this->lang->line('ui_november');   
+        $resource['res_december'] = $this->lang->line('ui_december'); 
 
         $resource['res_err_name_exist'] = $this->lang->line('err_msg_name_exist');
         $resource['res_msg_group_name_can_not_null'] = $this->lang->line('err_msg_name_can_not_null');

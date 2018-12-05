@@ -44,11 +44,11 @@
                     </div>
                     <div class="form-group">     
                     <div class="row">
-                        <div class="col">  
-                        <label><?php echo $resource['res_marriagestatus']?></label>
-                        <select id = "marriagestatus" name="marriagestatus" class="form-control">
+                      <div class="col">  
+                      <label><?php echo $resource['res_monthstart']?></label>
+                        <select id = "monthstart" name="monthstart" class="form-control">
                           <?php 	
-                          foreach ($enums['marriageenum'] as $value)
+                          foreach ($enums['monthsenum'] as $value)
                           { 
                           ?>
                             <option value ="<?php echo $value->Value?>"><?php echo $resource[$value->Resource]?></option>
@@ -56,21 +56,11 @@
                           }
                           ?>
                         </select>
-                        </div>
-                        <div class="col">  
-                          
-                        <label><?php echo $resource['res_familystatus']?></label>
-                        <select id = "familystatus" name="familystatus" class="form-control">
-                          <?php 	
-                          foreach ($enums['familyenum'] as $value)
-                          { 
-                          ?>
-                            <option value ="<?php echo $value->Value?>"><?php echo $resource[$value->Resource]?></option>
-                          <?php 
-                          }
-                          ?>
-                        </select>
-                        </div>
+                      </div>
+                      <div class="col">  
+                        
+              
+                      </div>
                     </div>
                   </div>
                     <div class="form-group">       
