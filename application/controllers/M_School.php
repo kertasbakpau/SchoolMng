@@ -154,7 +154,7 @@ class M_School extends CI_Controller {
         $form = $this->paging->get_form_name_id();
         if($this->Mgroupuser_model->is_permitted($_SESSION['userdata']['groupid'],$form['m_user'],'Delete'))
         {
-            $delete = $this->Muser_model->delete_data($id);
+            $delete = $this->Mschool_model->delete_data($id);
             if(isset($delete)){
                 $deletemsg = $this->helpers->get_query_error_message($delete['code']);
                 $this->session->set_flashdata('warning_msg', $deletemsg);
@@ -162,7 +162,7 @@ class M_School extends CI_Controller {
                 $deletemsg = $this->paging->get_delete_message();
                 $this->session->set_flashdata('delete_msg', $deletemsg);
             }
-            redirect('muser');
+            redirect('m_school');
         }
         else
         {   
