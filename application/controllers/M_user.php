@@ -69,14 +69,14 @@ class M_user extends CI_Controller
     public function addsave()
     {
         //$date = new DateTime();
-        $warning = array();
-        $err_exist = false;
-        $resource = $this->Muser_model->set_resources();
-        $groupid = $this->input->post('groupid');
-        $groupname = $this->input->post('groupname');
-        $username = $this->input->post('named');
-        $password = $this->input->post('password');
-        //echo  $username;
+        $warning    = array();
+        $err_exist  = false;
+        $resource   = $this->Muser_model->set_resources();
+        $groupid    = $this->input->post('groupid');
+        $groupname  = $this->input->post('groupname');
+        $username   = $this->input->post('named');
+        $password   = $this->input->post('password');
+
         $model  = $this->Muser_model->create_object(null,$groupid, $groupname, $username, $password, null, null, null, null);
         $modeltabel = $this->Muser_model->create_object_tabel(null, $groupid, $username, $password, null, null, null , null);
 
@@ -120,20 +120,20 @@ class M_user extends CI_Controller
 
     public function editsave()
     {
-        $resource = $this->Muser_model->set_resources();
+        $resource   = $this->Muser_model->set_resources();
 
-        $userid = $this->input->post('userid');
-        $groupid = $this->input->post('groupid');
-        $groupname = $this->input->post('groupname');
-        $username = $this->input->post('named');
-        $password = $this->input->post('password');
+        $userid     = $this->input->post('userid');
+        $groupid    = $this->input->post('groupid');
+        $groupname  = $this->input->post('groupname');
+        $username   = $this->input->post('named');
+        $password   = $this->input->post('password');
 
-        $edit = $this->Muser_model->get_data_by_id($userid);
-        $model = $this->Muser_model->create_object($edit->Id, $groupid, $groupname, $username,  $password, $edit->IOn, $edit->IBy, null , null);
-        $oldmodel = $this->Muser_model->create_object($edit->Id, $edit->GroupId, null, $edit->Username,  $edit->Password, $edit->IOn, $edit->IBy, $edit->UOn , $edit->UBy);
+        $edit       = $this->Muser_model->get_data_by_id($userid);
+        $model      = $this->Muser_model->create_object($edit->Id, $groupid, $groupname, $username,  $password, $edit->IOn, $edit->IBy, null , null);
+        $oldmodel   = $this->Muser_model->create_object($edit->Id, $edit->GroupId, null, $edit->Username,  $edit->Password, $edit->IOn, $edit->IBy, $edit->UOn , $edit->UBy);
         $modeltabel = $this->Muser_model->create_object_tabel($edit->Id, $groupid, $username, $password, $edit->IOn, $edit->IBy, null , null);
 
-        $validate = $this->Muser_model->validate($model, $oldmodel);
+        $validate   = $this->Muser_model->validate($model, $oldmodel);
  
         if($validate)
         {

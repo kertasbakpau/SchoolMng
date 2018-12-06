@@ -69,11 +69,11 @@ class M_School extends CI_Controller {
     public function addsave()
     {
         //$date = new DateTime();
-        $warning 	= array();
-        $err_exist 	= false;
-        $resource 	= $this->Mschool_model->set_resources();
-        $namasekolah 	= $this->input->post('named');
-        $alamat 	= $this->input->post('addres');
+        $warning 	    = array();
+        $err_exist 	    = false;
+        $resource 	    = $this->Mschool_model->set_resources();
+        $namasekolah    = $this->input->post('named');
+        $alamat 	    = $this->input->post('addres');
         //echo  $username;
         $model  	= $this->Mschool_model->create_object(null, $namasekolah, $alamat, null, null, null, null);
         $modeltabel = $this->Mschool_model->create_object_tabel(null, $namasekolah, $alamat, null, null, null , null);
@@ -84,7 +84,7 @@ class M_School extends CI_Controller {
         {
             $this->session->set_flashdata('add_warning_msg',$validate);
             $data =  $this->paging->set_data_page_add($resource, $model);
-            $this->loadview('m_user/add', $data);   
+            $this->loadview('m_school/add', $data);   
         }
         else{
             $date = date("Y-m-d H:i:s");
@@ -118,15 +118,16 @@ class M_School extends CI_Controller {
 
     public function editsave()
     {
-        $resource 	= $this->Mschool_model->set_resources();
-        $userid 	= $this->input->post('userid');
+        $resource 	    = $this->Mschool_model->set_resources();
+        $userid 	    = $this->input->post('userid');
         $namasekolah 	= $this->input->post('named');
-        $alamat 	= $this->input->post('alamat');
+        $alamat 	    = $this->input->post('addres');
 
         $edit 		= $this->Mschool_model->get_data_by_id($userid);
         $model 		= $this->Mschool_model->create_object($edit->Id, $namasekolah,  $alamat, $edit->IOn, $edit->IBy, null , null);
         $oldmodel 	= $this->Mschool_model->create_object($edit->Id, $edit->NamaSekolah,  $edit->Alamat, $edit->IOn, $edit->IBy, $edit->UOn , $edit->UBy);
         $modeltabel = $this->Mschool_model->create_object_tabel($edit->Id, $namasekolah, $alamat, $edit->IOn, $edit->IBy, null , null);
+
 
         $validate = $this->Mschool_model->validate($model, $oldmodel);
  

@@ -100,10 +100,13 @@ class Mschool_model extends CI_Model {
 
     public function delete_data($id)
     {
-        $this->db->set('IsActive', 0);
-        $this->db->set('GroupId', null);
         $this->db->where('Id', $id);
-        $this->db->update('m_user');
+        if(!$this->db->delete('m_school')){
+            return $this->db->error();
+        }
+        else{
+            return;
+        }
     }
 
     public function activate_data($id)
@@ -170,8 +173,8 @@ class Mschool_model extends CI_Model {
     {
         $exist = false;
         $this->db->select('*');
-        $this->db->from('m_user');
-        $this->db->where('UserName', $name);
+        $this->db->from('m_school');
+        $this->db->where('NamaSekolah', $name);
         $query = $this->db->get();
 
         $row = $query->result();
@@ -183,9 +186,9 @@ class Mschool_model extends CI_Model {
 
     public function validate($model, $oldmodel= null)
     {
-        $nameexist = false;
-        $warning = array();
-        $resource = $this->set_resources();
+        $nameexist  = false;
+        $warning    = array();
+        $resource   = $this->set_resources();
 
         if(!empty($oldmodel))
         {

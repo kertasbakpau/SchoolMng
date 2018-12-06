@@ -35,7 +35,7 @@
                     </div>
                     <div class="form-group">       
                       <label><?php echo $resource['res_password']?></label>
-                      <input id="password" type="text" placeholder="<?php echo $resource['res_password']?>" class="form-control" name = "alamat" value = "<?php echo $model['alamat']?>">
+                      <input id="password" type="text" placeholder="<?php echo $resource['res_password']?>" class="form-control" name = "addres" value = "<?php echo $model['alamat']?>">
                     </div>
                     <div class="form-group">       
                       <input type="submit" value="<?php echo $resource['res_save']?>" class="btn btn-primary">

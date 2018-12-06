@@ -180,9 +180,9 @@ class Muser_model extends CI_Model {
 
     public function validate($model, $oldmodel= null)
     {
-        $nameexist = false;
-        $warning = array();
-        $resource = $this->set_resources();
+        $nameexist  = false;
+        $warning    = array();
+        $resource   = $this->set_resources();
 
         if(!empty($oldmodel))
         {
