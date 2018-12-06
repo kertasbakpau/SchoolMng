@@ -61,7 +61,7 @@
                             
 														<td class = "icon-custom-table-header">
 															<a class = "icon-custom-table-detail" href="<?php echo base_url('m_school/edit/').$value->Id;?>"><i class="fa fa-edit"></i><?php echo  $resource['res_edit']?></a>
-                              <a class = "icon-custom-table-detail" href="javascript:void(0);" onclick="delete_school('<?php echo $value->Id?>')"><i class="fa fa-trash"></i><?php echo  $resource['res_delete']?></a>
+                              <a class = "icon-custom-table-detail" href="javascript:void(0);" onclick="delete_school('<?php echo $value->Id?>','<?php echo $value->NamaSekolah?>')"><i class="fa fa-trash"></i><?php echo  $resource['res_delete']?></a>
                             </td>
 													</tr>
 											<?php
@@ -180,7 +180,7 @@
     window.location =" <?php echo base_url('m_school');?>?search="+search;
   })   
 
-  function delete_school(id){
+  function delete_school(id, name){
     deleteData(name, function(result){
       if (result==true)
         window.location = "<?php echo base_url('m_school/delete/');?>" + id;

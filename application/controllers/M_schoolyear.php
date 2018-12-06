@@ -89,8 +89,11 @@ class M_schoolyear extends CI_Controller
         $err_exist = false;
         $resource = $this->Mschoolyear_model->set_resources();
         $name = $this->input->post('named');
+        $fromyear = $this->input->post('fromyear');
+        $toyear = $this->input->post('toyear');
+        $monthstart = $this->input->post('monthstart');
         
-        $model = $this->Mschoolyear_model->create_object(null, $name, null, null, null, null);
+        $model = $this->Mschoolyear_model->create_object(null, $name, $fromyear, $toyear, $monthstart,0 , null, null, null, null);
 
         $validate = $this->Mschoolyear_model->validate($model);
  

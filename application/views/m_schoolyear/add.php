@@ -58,8 +58,10 @@
                         </select>
                       </div>
                       <div class="col">  
-                        
-              
+                        <!-- <div class="i-checks">
+                          <input id="checkboxCustom2" type="checkbox" value="" checked="" class="checkbox-template">
+                          <label for="checkboxCustom2"><?php echo $resource['res_active']?></label>
+                        </div> -->
                       </div>
                     </div>
                   </div>
