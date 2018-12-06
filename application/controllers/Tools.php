@@ -26,6 +26,8 @@ class Tools extends CI_Controller {
         $result .= "php index.php tools migrate [\"version_number\"]    Run all migrations. The version number is optional.\n";
         $result .= "php index.php tools seeder \"file_name\"            Creates a new seed file.\n";
         $result .= "php index.php tools seed \"file_name\"              Run the specified seed file.\n";
+        $result .= "php index.php tools controller \"file_name\"        Creates a new controller file.\n";
+        $result .= "php index.php tools model \"file_name\"             Creates a new model file.\n";
 
         echo $result . PHP_EOL;
     }

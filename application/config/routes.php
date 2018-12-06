@@ -99,6 +99,7 @@ $route['mschoolyear/addsave'] = 'm_schoolyear/addsave';
 $route['mschoolyear/edit/(:num)'] = 'm_schoolyear/edit/$1';
 $route['mschoolyear/editsave'] = 'm_schoolyear/editsave';
 $route['mschoolyear/delete/(:num)'] = 'm_schoolyear/delete/$1';
+$route['mschoolyear/activate/(:num)'] = 'm_schoolyear/activate/$1';
 
 //API
 $route['api/mdisaster']['GET'] = 'api_mdisaster/get_disaster';

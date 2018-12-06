@@ -121,9 +121,11 @@ class M_schoolyear extends CI_Controller
         if($this->Mgroupuser_model->is_permitted($_SESSION['userdata']['id'],$form['m_schoolyear'],'Write'))
         {
             $resource = $this->Mschoolyear_model->set_resources();
+            $enum =  $this->paging->get_enum_name();
+            $enums['monthsenum'] = $this->Menum_model->get_data_by_id($enum['months']);
             $edit = $this->Mschoolyear_model->get_data_by_id($id);
-            $model = $this->Mschoolyear_model->create_object($edit->Id, $edit->Nama, null, null, null, null);
-            $data =  $this->paging->set_data_page_edit($resource, $model);
+            $model = $this->Mschoolyear_model->create_object($edit->Id, $edit->Name, $edit->FromYear, $edit->ToYear, $edit->MonthStart, $edit->IsActive, $edit->IOn, $edit->IBy, null, null);
+            $data =  $this->paging->set_data_page_edit($resource, $model, $enums);
             $this->loadview('m_schoolyear/edit', $data);  
         }
         else
@@ -138,10 +140,13 @@ class M_schoolyear extends CI_Controller
         $resource = $this->Mschoolyear_model->set_resources();
 
         $name = $this->input->post('named');
+        $fromyear = $this->input->post('fromyear');
+        $toyear = $this->input->post('toyear');
+        $monthstart = $this->input->post('monthstart');
 
-        $edit = $this->Mschoolyear_model->get_data_by_id($this->input->post('id'));
-        $model = $this->Mschoolyear_model->create_object($edit->Id, $name, $edit->IOn, $edit->IBy, null , null);
-        $oldmodel = $this->Mschoolyear_model->create_object($edit->Id, $edit->Nama, $edit->IOn, $edit->IBy, $edit->UOn , $edit->UBy);
+        $edit = $this->Mschoolyear_model->get_data_by_id($this->input->post('idschoolyear'));
+        $model = $this->Mschoolyear_model->create_object($edit->Id, $name, $fromyear, $toyear, $monthstart, $edit->IsActive, $edit->IOn, $edit->IBy, null , null);
+        $oldmodel = $this->Mschoolyear_model->create_object($edit->Id, $edit->Name, $edit->FromYear, $edit->ToYear, $edit->MonthStart, $edit->IsActive, $edit->IOn, $edit->IBy, $edit->UOn , $edit->UBy);
 
         $validate = $this->Mschoolyear_model->validate($model, $oldmodel);
         if($validate)
@@ -161,6 +166,11 @@ class M_schoolyear extends CI_Controller
             $this->session->set_flashdata('success_msg', $successmsg);
             redirect('mschoolyear');
         }
+    }
+
+    public function activate($id){
+        $this->Mschoolyear_model->setActive($id);
+        redirect('mschoolyear');
     }
 
     

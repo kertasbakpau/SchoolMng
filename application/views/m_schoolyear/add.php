@@ -43,28 +43,28 @@
                       </div>
                     </div>
                     <div class="form-group">     
-                    <div class="row">
-                      <div class="col">  
-                      <label><?php echo $resource['res_monthstart']?></label>
-                        <select id = "monthstart" name="monthstart" class="form-control">
-                          <?php 	
-                          foreach ($enums['monthsenum'] as $value)
-                          { 
-                          ?>
-                            <option value ="<?php echo $value->Value?>"><?php echo $resource[$value->Resource]?></option>
-                          <?php 
-                          }
-                          ?>
-                        </select>
-                      </div>
-                      <div class="col">  
-                        <!-- <div class="i-checks">
-                          <input id="checkboxCustom2" type="checkbox" value="" checked="" class="checkbox-template">
-                          <label for="checkboxCustom2"><?php echo $resource['res_active']?></label>
-                        </div> -->
+                      <div class="row">
+                        <div class="col">  
+                        <label><?php echo $resource['res_monthstart']?></label>
+                          <select id = "monthstart" name="monthstart" class="form-control">
+                            <?php 	
+                            foreach ($enums['monthsenum'] as $value)
+                            { 
+                            ?>
+                              <option value ="<?php echo $value->Value?>"><?php echo $resource[$value->Resource]?></option>
+                            <?php 
+                            }
+                            ?>
+                          </select>
+                        </div>
+                        <div class="col">  
+                          <!-- <div class="i-checks">
+                            <input id="checkboxCustom2" type="checkbox" value="" checked="" class="checkbox-template">
+                            <label for="checkboxCustom2"><?php echo $resource['res_active']?></label>
+                          </div> -->
+                        </div>
                       </div>
                     </div>
-                  </div>
                     <div class="form-group">       
                       <input type="submit" value="<?php echo $resource['res_save']?>" class="btn btn-primary">
                     </div>

@@ -65,6 +65,16 @@ class Mschoolyear_model extends CI_Model {
         }
     }
 
+    public function setActive($id){
+
+        $this->db->set('IsActive', 0);
+        if($this->db->update('m_schoolyear')){
+            $this->db->set('IsActive', 1);
+            $this->db->where('Id', $id);
+            $this->db->update('m_schoolyear');
+        }
+    }
+
     public function create_object($id, $name, $fromyear, $toyear, $monthstart, $isactive, $ion, $iby, $uon, $uby)
     {
         $data = array(
@@ -179,7 +189,9 @@ class Mschoolyear_model extends CI_Model {
         $resource['res_september'] = $this->lang->line('ui_september');   
         $resource['res_october'] = $this->lang->line('ui_october');    
         $resource['res_november'] = $this->lang->line('ui_november');   
-        $resource['res_december'] = $this->lang->line('ui_december'); 
+        $resource['res_december'] = $this->lang->line('ui_december');   
+        $resource['res_activate'] = $this->lang->line('ui_activate');   
+        $resource['res_deactivate'] = $this->lang->line('ui_deactivate'); 
 
         $resource['res_err_name_exist'] = $this->lang->line('err_msg_name_exist');
         $resource['res_msg_group_name_can_not_null'] = $this->lang->line('err_msg_name_can_not_null');

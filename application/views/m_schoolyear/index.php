@@ -52,7 +52,7 @@
 												{
 											?>
 													<tr>
-														<td><?php echo $value->name?></td>
+														<td><?php echo $value->Name?></td>
                             <?php 
                             if($value->IsActive == 1 ) {
                             ?>
@@ -67,9 +67,9 @@
 														<td class = "icon-custom-table-header">
 															<a class = "icon-custom-table-detail" href="<?php echo base_url('mschoolyear/edit/').$value->Id;?>"><i class="fa fa-edit"></i><?php echo  $resource['res_edit']?></a>
                               <?php if($value->IsActive == 1) { ?>
-															  <a class = "icon-custom-table-detail" href="javascript:void(0);" onclick="delete_schoolyear('<?php echo $value->Id?>','<?php echo $value->Username?>')"><i class="fa fa-power-off"></i> <?php echo $resource['res_deactivate']?></a>
+															  <a class = "icon-custom-table-detail" href="javascript:void(0);" onclick="delete_schoolyear('<?php echo $value->Id?>','<?php echo $value->Name?>')"><i class="fa fa-power-off"></i> <?php echo $resource['res_deactivate']?></a>
                               <?php } else { ?>
-															  <a class = "icon-custom-table-detail" href="javascript:void(0);" onclick="activate_schoolyear('<?php echo $value->Id?>','<?php echo $value->Username?>')"><i class="fa fa-power-off"></i> <?php echo $resource['res_activate']?></a>
+															  <a class = "icon-custom-table-detail" href="<?php echo base_url('mschoolyear/activate/'.$value->Id)?>"><i class="fa fa-power-off"></i> <?php echo $resource['res_activate']?></a>
                               <?php } ?>
                             </td>
 													</tr>
