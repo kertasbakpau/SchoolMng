@@ -117,6 +117,7 @@ class Paging {
         $resource['res_warehouse'] = $CI->lang->line('ui_warehouse');
         $resource['res_sitestatus'] = $CI->lang->line('ui_sitestatus');
         $resource['res_class'] = $CI->lang->line('ui_class');
+        $resource['res_school'] = $CI->lang->line('ui_school');
         $resource['res_schoolyear'] = $CI->lang->line('ui_schoolyear');
 
         $resource['flag'] = base_url('assets/bootstrapdashboard/img/flags/16/US.png');
