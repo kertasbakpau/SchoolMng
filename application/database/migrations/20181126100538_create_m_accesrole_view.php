@@ -4,7 +4,7 @@ class Migration_create_m_accesrole_view extends CI_Migration {
 
     public function up() {
         $this->load->helper('db_helper');
-        $sql = "CREATE VIEW view_m_accessrole
+        $sql = "CREATE OR REPLACE VIEW view_m_accessrole
                 as
                 select a.Id AS GroupId,
                     b.Id AS FormId, 
