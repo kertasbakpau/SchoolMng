@@ -1,13 +1,24 @@
 <?php
 
-class Migration_insert_m_form_20181129105921 extends CI_Migration {
+class Migration_insert_m_form extends CI_Migration {
 
     private $table = 'm_form';
     public function up() {
         $this->load->helper('db_helper');
         //$data = array();
         $data = array('data' =>
-            
+            array(
+                'FormName' => 'm_school',
+                'AliasName' => 'master school',
+                'LocalName' => 'master sekolah',
+                'ClassName' => 'Master'
+            ),
+            array(
+                'FormName' => 'm_kelas',
+                'AliasName' => 'master class',
+                'LocalName' => 'master kelas',
+                'ClassName' => 'Master'
+            ),
             array(
                 'FormName' => 'm_groupuser',
                 'AliasName' => 'master group user',
@@ -26,7 +37,7 @@ class Migration_insert_m_form_20181129105921 extends CI_Migration {
     }
 
     public function down() {
-        $this->dbforge->drop_table('insert_m_form');
+        //$this->dbforge->drop_table('insert_m_form');
     }
 
 }
