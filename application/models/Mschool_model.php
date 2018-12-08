@@ -217,20 +217,6 @@ class Mschool_model extends CI_Model {
         return $warning;
     }
 
-    public function validate_changepassword($username, $oldpassword, $newpassword, $confirmpassword){
-        $warning = array();
-        $resource = $this->set_resources();
-        $datauser = $this->get_sigle_data_user($username, $oldpassword);
-        if($datauser){
-            if($newpassword != $confirmpassword){
-                $warning = array_merge($warning, array(0=>$resource['res_wrong_confirmed_password']));
-            }
-        } else {
-            $warning = array_merge($warning, array(0=>$resource['res_wrong_password']));
-        }
-        return $warning;
-
-    }
 
     public function set_resources()
     {

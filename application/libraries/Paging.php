@@ -28,6 +28,7 @@ class Paging {
         $data["m_uom"] = 13;
         $data["m_warehouse"] = 14;
         $data["t_receiveitem"] = 15;
+        $data["m_mapel"] = 16;
         return $data;
     }
 

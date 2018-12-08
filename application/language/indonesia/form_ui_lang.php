@@ -133,3 +133,8 @@ $lang['ui_december'] = "Desember";
 // M_SCHOOL
 $lang['ui_master_school'] 	= "Master Sekolah";
 $lang['ui_school_name']   	= "Nama Sekolah";
+
+// M_MAPEL
+$lang['ui_master_subject']	= "Master Mata Pelajaran";
+$lang['ui_subject']			= "Mata Pelajaran";
+$lang['ui_subject_code']	= "Kode Mata Pelajaran";
