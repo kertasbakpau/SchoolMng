@@ -79,12 +79,12 @@ $route['changePassword'] = 'm_user/changePassword';
 $route['saveChangePassword'] = 'm_user/saveNewPassword';
 
 
-$route['mkelas'] = 'm_kelas';
-$route['mkelas/add'] = 'm_kelas/add';
-$route['mkelas/addsave'] = 'm_kelas/addsave';
-$route['mkelas/edit/(:num)'] = 'm_kelas/edit/$1';
-$route['mkelas/editsave'] = 'm_kelas/editsave';
-$route['mkelas/delete/(:num)'] = 'm_kelas/delete/$1';
+$route['mclass'] = 'm_kelas';
+$route['mclass/add'] = 'm_kelas/add';
+$route['mclass/addsave'] = 'm_kelas/addsave';
+$route['mclass/edit/(:num)'] = 'm_kelas/edit/$1';
+$route['mclass/editsave'] = 'm_kelas/editsave';
+$route['mclass/delete/(:num)'] = 'm_kelas/delete/$1';
 
 $route['mschool'] = 'm_school';
 $route['mschool/add'] = 'm_school/add';

@@ -162,10 +162,10 @@
             <ul class="list-unstyled">
               <li><a href="#exampledropdownDropdown" aria-expanded="false" data-toggle="collapse"> <i class="icon-interface-windows"></i><?php echo $resource['res_general']?></a>
                 <ul id="exampledropdownDropdown" class="collapse list-unstyled ">
-                  <li><a href="<?php echo base_url('mschool');?>"><i class="icon-user"></i><?php echo $resource['res_school']?></a></li>
-                  <li><a href="<?php echo base_url('mschoolyear');?>"><i class="icon-user"></i><?php echo $resource['res_schoolyear']?></a></li>
-                  <li><a href="<?php echo base_url('mkelas');?>"><i class="icon-user"></i><?php echo $resource['res_class']?></a></li>
-                </ul>
+                  <?php foreach($mastermenu as $master) {?>
+                    <li><a href="<?php echo base_url($master->IndexRoute);?>"><i class="icon-user"></i><?php echo $resource[$master->Resource]?></a></li>
+                  <?php }?>
+                  </ul>
               </li>
             </ul>
           <span class="heading">Users</span>

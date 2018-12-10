@@ -18,17 +18,7 @@ class Paging {
         $data["m_groupuser"] = 3;
         $data["m_user"] = 4;
         $data["m_schoolyear"] = 5;
-        $data["m_village"] = 6;
-        $data["m_subcity"] = 7;
-        $data["m_familycard"] = 8;
-        $data["m_animal"] = 9;
-        $data["m_barrack"] = 10;
-        $data["t_disasteroccur"] = 11;
-        $data["m_item"] = 12;
-        $data["m_uom"] = 13;
-        $data["m_warehouse"] = 14;
-        $data["t_receiveitem"] = 15;
-        $data["m_mapel"] = 16;
+        $data["m_mapel"] = 6;
         return $data;
     }
 
@@ -45,8 +35,11 @@ class Paging {
 
         $CI =& get_instance();
         $resource = $this->set_resources_header_page();
+        $CI->load->model(array("Mform_model"));
+        $mastermenu = $CI->Mform_model->get_data_by_classname("Master");
 
         $data['resource'] = $resource;
+        $data['mastermenu'] = $mastermenu;
 
         $CI->load->view('template/header', $data); 
     }
