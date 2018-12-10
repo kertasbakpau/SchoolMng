@@ -36,6 +36,7 @@ class Paging {
         $data["months"] = 1;
         $data["gender"] = 2;
         $data["religion"] = 3;
+        $data["WorkStatus"] = 4;
         return $data;
     }
 
@@ -119,6 +120,7 @@ class Paging {
         $resource['res_class'] = $CI->lang->line('ui_class');
         $resource['res_school'] = $CI->lang->line('ui_school');
         $resource['res_schoolyear'] = $CI->lang->line('ui_schoolyear');
+        $resource['res_worker'] = $CI->lang->line('ui_worker');
 
         $resource['flag'] = base_url('assets/bootstrapdashboard/img/flags/16/US.png');
         if($_SESSION['language']['language'] === 'indonesia'){

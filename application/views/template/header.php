@@ -165,6 +165,7 @@
                   <li><a href="<?php echo base_url('mschool');?>"><i class="icon-user"></i><?php echo $resource['res_school']?></a></li>
                   <li><a href="<?php echo base_url('mschoolyear');?>"><i class="icon-user"></i><?php echo $resource['res_schoolyear']?></a></li>
                   <li><a href="<?php echo base_url('mkelas');?>"><i class="icon-user"></i><?php echo $resource['res_class']?></a></li>
+                  <li><a href="<?php echo base_url('mworker');?>"><i class="icon-user"></i><?php echo $resource['res_worker']?></a></li>
                 </ul>
               </li>
             </ul>

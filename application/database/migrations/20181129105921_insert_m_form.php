@@ -30,7 +30,8 @@ class Migration_insert_m_form extends CI_Migration {
                 'AliasName' => 'master user',
                 'LocalName' => 'master pengguna',
                 'ClassName' => 'Master'
-            ));
+            )
+        );
         foreach ($data as $value){
             $this->db->insert($this->table, $value);
         }
