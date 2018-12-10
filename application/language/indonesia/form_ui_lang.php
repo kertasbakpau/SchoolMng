@@ -29,6 +29,7 @@ $lang['ui_religion'] = "Religion";
 $lang['ui_address'] = "Address";
 $lang['ui_telephone'] = "Telephone";
 $lang['ui_work_status'] = "Worker Status";
+$lang['ui_work_status1'] = "Worker Status";
 $lang['ui_description'] = "Deskripsi";
 $lang['ui_search'] = "Cari";
 $lang['ui_save'] = "Simpan";
