@@ -21,3 +21,5 @@ $lang['err_msg_qty_can_not_null'] = "Jumlah tidak boleh kosong";
 $lang['err_msg_ordernumber_can_not_null'] = "Nomor Urutan tidak boleh kosong";
 $lang['err_msg_fromtouom_can_not_null'] = "Dari Ukuran dan Ke Ukuran tidak boleh sama";
 $lang['err_msg_receivedate_cannot_null'] = "Tanggal Terima tidak boleh kosong";
+$lang['err_msg_nis_exist'] = "NIS Sudah Ada !";
+$lang['err_msg_nis_can_not_null'] = "NIS tidak boleh kosong";

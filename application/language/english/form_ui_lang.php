@@ -141,4 +141,13 @@ $lang['ui_master_subject']	= "Master Subject";
 $lang['ui_subject']			= "Subject";
 $lang['ui_subject_code']	= "Subject Code";
 
+$lang['ui_master_student'] = "Master Student";
+$lang['ui_student'] = "Student";
+$lang['ui_nis'] = "NIS";
+$lang['ui_dateofbirth'] = "Date of Birth";
+$lang['ui_placeofborth'] = "Place of Birth";
+$lang['ui_mothername'] = "Mother's Name";
+$lang['ui_fathername'] = "Father's Name";
+$lang['ui_yearofstudy'] = "Year of Study";
+
 

@@ -125,6 +125,13 @@ $route['msubject/edit/(:num)'] = 'm_mapel/edit/$1';
 $route['msubject/editsave'] = 'm_mapel/editsave';
 $route['msubject/delete/(:num)'] = 'm_mapel/delete/$1';
 
+$route['mstudent'] = 'm_student';
+$route['mstudent/add'] = 'm_student/add';
+$route['mstudent/addsave'] = 'm_student/addsave';
+$route['mstudent/edit/(:num)'] = 'm_student/edit/$1';
+$route['mstudent/editsave'] = 'm_student/editsave';
+$route['mstudent/delete/(:num)'] = 'm_student/delete/$1';
+
 //API
 $route['api/mdisaster']['GET'] = 'api_mdisaster/get_disaster';
 $route['api/mdisaster/(:any)/(:any)'] = 'api_mdisaster/get_disaster/$1/$2';

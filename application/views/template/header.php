@@ -25,7 +25,9 @@
     <!-- Custom Scrollbar-->
     <link rel="stylesheet" href="<?php echo base_url('assets/bootstrapdashboard/vendor/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.css');?>">
     <!-- theme stylesheet-->
-    <link rel="stylesheet" href="<?php echo base_url('assets/bootstrapdashboard/css/style.default.css');?>" id="theme-stylesheet">
+    
+    <link rel="stylesheet" href="<?php echo base_url('assets/bootstrapdashboard/css/style.blue.premium.css');?>" id="theme-stylesheet">
+    <!-- <link rel="stylesheet" href="<?php echo base_url('assets/bootstrapdashboard/css/style.green.css');?>" id="theme-stylesheet"> -->
     <!-- Custom stylesheet - for your changes-->
     <link rel="stylesheet" href="<?php echo base_url('assets/bootstrapdashboard/css/custom.css');?>">
     <link rel="stylesheet" href="<?php echo base_url('assets/bootstrapdashboard/css/file/component.css');?>">
