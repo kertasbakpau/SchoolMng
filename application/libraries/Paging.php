@@ -116,6 +116,7 @@ class Paging {
         $resource['res_school'] = $CI->lang->line('ui_school');
         $resource['res_schoolyear'] = $CI->lang->line('ui_schoolyear');
         $resource['res_worker'] = $CI->lang->line('ui_worker');
+        $resource['res_subject'] = $CI->lang->line('ui_subject');
 
         $resource['flag'] = base_url('assets/bootstrapdashboard/img/flags/16/US.png');
         if($_SESSION['language']['language'] === 'indonesia'){
