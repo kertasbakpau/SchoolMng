@@ -12,6 +12,8 @@ class Muser_model extends CI_Model {
     public function __construct()
     {
         parent::__construct();
+        
+        $this->load->helper('helpers');
         $this->load->library('session');
         $this->load->model('Mgroupuser_model');
         $this->lang->load('form_ui', !empty($_SESSION['language']['language']) ? $_SESSION['language']['language'] : $this->config->item('language'));
@@ -36,7 +38,7 @@ class Muser_model extends CI_Model {
     
     public function get_sigle_data_user($username, $password)
     {
-        $md5pass = md5("school".$username.$password);
+        $md5pass = encryptMd5("school".$username.$password);
         $this->db->select('a.*, b.GroupName');
         $this->db->from('m_user as a');
         $this->db->join('m_groupuser as b', 'a.GroupId = b.Id', 'left');
@@ -109,8 +111,8 @@ class Muser_model extends CI_Model {
 
     public function saveNewPassword($username, $password, $newPassword){
         
-        $md5pass = md5("school".$username.$password);
-        $newmd5pass = md5("school".$username.$newPassword);
+        $md5pass = encryptMd5("school".$username.$password);
+        $newmd5pass = encryptMd5("school".$username.$newPassword);
         $this->db->set('Password', $newmd5pass);
         $this->db->where('Password', $md5pass);
         $this->db->update('m_user');
@@ -126,7 +128,7 @@ class Muser_model extends CI_Model {
     {
         $md5pass = null;
         if(!empty($password))
-            $md5pass = md5("school".$username.$password);
+            $md5pass = encryptMd5("school".$username.$password);
 
         $data = array(
             'id' => $id,
@@ -147,7 +149,7 @@ class Muser_model extends CI_Model {
     {
         $md5pass = null;
         if(!empty($password))
-            $md5pass = md5("school".$username.$password);
+            $md5pass = encryptMd5("school".$username.$password);
 
         $data = array(
             'id' => $id,
