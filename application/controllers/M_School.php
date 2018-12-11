@@ -187,43 +187,6 @@ class M_School extends CI_Controller {
         }   
     }
 
-    public function changePassword(){
-        $model = array(
-            'oldpassword' => "",
-            'newpassword' => "",
-            'confirmpassword' => ""
-        );
-
-        $resource = $this->Muser_model->set_resources();
-        $data =  $this->paging->set_data_page_add($resource);
-        $this->loadview('m_user/changePassword', $data);    
-    }
-
-    public function saveNewPassword(){
-        
-        $oldpassword = $this->input->post('oldpassword');
-        $newpassword = $this->input->post('newpassword');
-        $confirmpassword = $this->input->post('confirmpassword');
-        $model = array(
-            'oldpassword' => $oldpassword,
-            'newpassword' => $newpassword,
-            'confirmpassword' =>  $confirmpassword
-        );
-        
-        $resource = $this->Muser_model->set_resources();
-        $validate = $this->Muser_model->validate_changepassword($_SESSION['userdata']['username'], $oldpassword, $newpassword, $confirmpassword);
-        if($validate){
-            $this->session->set_flashdata('warning_msg',$validate);
-            $data =  $this->paging->set_data_page_add($resource, $model);
-            $this->loadview('m_user/changePassword', $data);    
-        }
-        else{
-            $this->Muser_model->saveNewPassword($_SESSION['userdata']['username'], $oldpassword, $newpassword);
-            $successmsg = $this->paging->get_success_message();
-            $this->session->set_flashdata('success_msg', $successmsg);
-            redirect('home');
-        }
-    }
 
     private function loadview($viewName, $data)
 	{

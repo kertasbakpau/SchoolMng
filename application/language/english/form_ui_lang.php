@@ -136,3 +136,9 @@ $lang['ui_november'] = "November";
 $lang['ui_december'] = "December";
 
 
+// M_MAPEL
+$lang['ui_master_subject']	= "Master Subject";
+$lang['ui_subject']			= "Subject";
+$lang['ui_subject_code']	= "Subject Code";
+
+

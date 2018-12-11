@@ -81,12 +81,12 @@ $route['changePassword'] = 'm_user/changePassword';
 $route['saveChangePassword'] = 'm_user/saveNewPassword';
 
 
-$route['mkelas'] = 'm_kelas';
-$route['mkelas/add'] = 'm_kelas/add';
-$route['mkelas/addsave'] = 'm_kelas/addsave';
-$route['mkelas/edit/(:num)'] = 'm_kelas/edit/$1';
-$route['mkelas/editsave'] = 'm_kelas/editsave';
-$route['mkelas/delete/(:num)'] = 'm_kelas/delete/$1';
+$route['mclass'] = 'm_kelas';
+$route['mclass/add'] = 'm_kelas/add';
+$route['mclass/addsave'] = 'm_kelas/addsave';
+$route['mclass/edit/(:num)'] = 'm_kelas/edit/$1';
+$route['mclass/editsave'] = 'm_kelas/editsave';
+$route['mclass/delete/(:num)'] = 'm_kelas/delete/$1';
 
 $route['mworker'] = 'm_worker';
 $route['mworker/add'] = 'm_worker/add';
@@ -109,6 +109,21 @@ $route['mschoolyear/edit/(:num)'] = 'm_schoolyear/edit/$1';
 $route['mschoolyear/editsave'] = 'm_schoolyear/editsave';
 $route['mschoolyear/delete/(:num)'] = 'm_schoolyear/delete/$1';
 $route['mschoolyear/activate/(:num)'] = 'm_schoolyear/activate/$1';
+
+
+$route['mworker'] = 'm_worker';
+$route['mworker/add'] = 'm_worker/add';
+$route['mworker/addsave'] = 'm_worker/addsave';
+$route['mworker/edit/(:num)'] = 'm_worker/edit/$1';
+$route['mworker/editsave'] = 'm_worker/editsave';
+$route['mworker/delete/(:num)'] = 'm_worker/delete/$1';
+
+$route['msubject'] = 'm_mapel';
+$route['msubject/add'] = 'm_mapel/add';
+$route['msubject/addsave'] = 'm_mapel/addsave';
+$route['msubject/edit/(:num)'] = 'm_mapel/edit/$1';
+$route['msubject/editsave'] = 'm_mapel/editsave';
+$route['msubject/delete/(:num)'] = 'm_mapel/delete/$1';
 
 //API
 $route['api/mdisaster']['GET'] = 'api_mdisaster/get_disaster';
