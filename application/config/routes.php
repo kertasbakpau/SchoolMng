@@ -49,6 +49,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | Examples:	my-controller/index	-> my_controller/index
 |		my-controller/my-method	-> my_controller/my_method
 */
+
+// tes
 $route['default_controller'] = 'login';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
@@ -85,6 +87,13 @@ $route['mkelas/addsave'] = 'm_kelas/addsave';
 $route['mkelas/edit/(:num)'] = 'm_kelas/edit/$1';
 $route['mkelas/editsave'] = 'm_kelas/editsave';
 $route['mkelas/delete/(:num)'] = 'm_kelas/delete/$1';
+
+$route['mworker'] = 'm_worker';
+$route['mworker/add'] = 'm_worker/add';
+$route['mworker/addsave'] = 'm_worker/addsave';
+$route['mworker/edit/(:num)'] = 'm_worker/edit/$1';
+$route['mworker/editsave'] = 'm_worker/editsave';
+$route['mworker/delete/(:num)'] = 'm_worker/delete/$1';
 
 $route['mschool'] = 'm_school';
 $route['mschool/add'] = 'm_school/add';
