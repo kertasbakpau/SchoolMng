@@ -22,7 +22,12 @@ class Migration_insert_m_form20181210105621 extends CI_Migration {
                 'IndexRoute' => 'msubject'
             ));
         foreach ($data as $value){
-            $this->db->insert('m_form', $value);
+            $mform = $this->db->query("SELECT * FROM m_form where FormName = '".$value["FormName"]."'")->row();
+            if($mform){
+
+            } else {
+                $this->db->insert('m_form', $value);
+            }
         }
     }
 

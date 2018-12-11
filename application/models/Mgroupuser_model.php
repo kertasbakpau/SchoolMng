@@ -12,6 +12,7 @@ class Mgroupuser_model extends CI_Model {
     public function __construct()
     {
         parent::__construct();
+        $this->load->model(array("Mform_model"));
         $this->load->library('session');
         $this->load->library('paging');
         $this->lang->load('form_ui', !empty($_SESSION['language']['language']) ? $_SESSION['language']['language'] : $this->config->item('language'));
@@ -216,8 +217,14 @@ class Mgroupuser_model extends CI_Model {
         return $permitted;
     }
 
-    public function is_permitted($groupid = null, $formid = null, $role = null)
+    public function is_permitted($groupid = null, $form = null, $role = null)
     {
+        $formid = $form;
+        if(isset($form)){
+            $forms = $this->Mform_model->get_data_by_formname($form);
+            $formid = $forms->Id;
+        }
+
         $permitted = false;
         if($this->paging->is_superadmin($_SESSION['userdata']['username'])
             ||  $this->has_role($groupid,$formid,$role)

@@ -26,6 +26,14 @@ class Mform_model extends CI_Model {
         return $query->result();
     }
 
+    public function get_data_by_formname($formname){  
+        // get data by primary key
+
+        $this->db->where('FormName', $formname);
+        $query = $this->db->get('m_form');
+        return $query->row();
+    }
+
     public function get_datapages($page, $pagesize, $search = null){  
         // your datapages
     }

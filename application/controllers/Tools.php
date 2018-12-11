@@ -58,7 +58,7 @@ class Tools extends CI_Controller {
                     $this->db->insert("g_versionhistory", $migrationVersion);
                 }
                 $countMigrate++;
-            } 
+            }
             $prevVersion = $ver;
         }
         echo "Migrations count (" . $countMigrate .")" . PHP_EOL;
