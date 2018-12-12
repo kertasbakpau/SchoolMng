@@ -11,7 +11,7 @@
         <div class="container-fluid">
           <!-- Page Header-->
           <header class="header-custom"> 
-            <h1 class="h3 display"><i class="fa fa-fire"></i><?php echo $resource['res_master_user']?></h1>
+            <h1 class="h3 display"><i class="fa fa-fire"></i><?php echo $resource['res_master_student']?></h1>
           </header>
           <div class="row">
             <div class="col-lg-12">
@@ -20,32 +20,62 @@
 									<div class="row">
                     <div class = "col-lg-10">
                       <h4><?php echo $resource['res_edit_data']?></h4> 
-                    </div><div class = "col-lg-2 icon-custom-table-header"><a href="<?php echo base_url('muser');?>"><i class="fa fa-table"></i> Index</a></div>
+                    </div><div class = "col-lg-2 icon-custom-table-header"><a href="<?php echo base_url('mstudent');?>"><i class="fa fa-table"></i> Index</a></div>
                   </div>
                 </div>
                 <div class="card-body">
-                  <form method = "post" action = "<?php echo base_url('muser/editsave');?>">
-
-                    <input hidden = "true" name="iduser" value="<?php echo $model['id']?>"/> 
-
+                <form method = "post" action = "<?php echo base_url('mstudent/editsave');?>">
+                    <input hidden name="idstudent" type= "text" value="<?php echo $model['id']?>">
                     <div class="form-group">
-                      <label><?php echo $resource['res_name']?></label>
-                      <input hidden="true" id = "userid" type="text" class="form-control" name = "userid" value="<?php echo $model['id']?>">
-                      <input id="named" type="text" placeholder="<?php echo $resource['res_name']?>" class="form-control" name = "named" value="<?php echo $model['username']?>" required>
-                    </div>
-                    <div class="form-group">
-                      <label><?php echo $resource['res_group_user']?></label>
-                      <div class="input-group">
-                        <input hidden="true" id = "groupid" type="text" class="form-control" name = "groupid" value="<?php echo $model['groupid']?>">
-                        <input readonly id = "groupname" placeholder="<?php echo $resource['res_group_user']?>" type="text" class="form-control" name = "groupname" value="<?php echo $model['groupname']?>">
-                        <div class="input-group-append">
-                          <button id="btnGroupModal" data-toggle="modal" type="button" class="btn btn-primary" onclick="getModalGroup(1);" data-target="#modalGroupUser"><i class="fa fa-search"></i></button>
+                      <div class="row">
+                        <div class="col">
+                        <label><?php echo $resource['res_nis']?></label>
+                          <input id="nis" type="text" placeholder="<?php echo $resource['res_nis']?>" class="form-control" name = "nis" value="<?php echo $model['nis']?>" required>
+                        </div>
+                        <div class="col">
+                          <label><?php echo $resource['res_name']?></label>
+                          <input id="named" type="text" placeholder="<?php echo $resource['res_name']?>" class="form-control" name = "named" value="<?php echo $model['name']?>" required>
                         </div>
                       </div>
                     </div>
-                    <div class="form-group">       
-                      <label><?php echo $resource['res_password']?></label>
-                      <input id="password" type="password" placeholder="<?php echo $resource['res_password']?>" class="form-control" name = "password" value = "<?php echo $model['password']?>">
+                    <div class="form-group">
+                      <div class="row">
+                        <div class="col">
+                          <label><?php echo $resource['res_placeofbirth']?></label>
+                          <input id = "placeofbirth" placeholder="<?php echo $resource['res_placeofbirth']?>" type="text" class="form-control" name = "placeofbirth"  value="<?php echo $model['placeofbirth']?>" required>
+                        </div>
+                        <div class="col">
+                        <label><?php echo $resource['res_dateofbirth']?></label>
+                          <!-- <input id="dateofbirth" type="text" placeholder="<?php echo $resource['res_dateofbirth']?>" class="form-control" name = "dateofborth" value=""> -->
+                          <div class="input-group date"  id = "dateBirth">
+                            <input id = "dateofbirth" data-date-format="dd-mm-yyyy" readonly placeholder="<?php echo $resource['res_dateofbirth']?>" type="text" class="form-control" name = "dateofbirth" value="<?php echo $model['dateofbirth']?>" required>
+                           </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="form-group">     
+                      <div class="row">
+                        <div class="col">
+                        <label><?php echo $resource['res_mothername']?></label>
+                          <input id="mothername" type="text" placeholder="<?php echo $resource['res_mothername']?>" class="form-control" name = "mothername" value="<?php echo $model['mothername']?>">
+                        </div>
+                        <div class="col">
+                          <label><?php echo $resource['res_fathername']?></label>
+                          <input id="fathername" type="text" placeholder="<?php echo $resource['res_fathername']?>" class="form-control" name = "fathername" value="<?php echo $model['fathername']?>">
+                        </div>
+                      </div>
+                    </div>
+                    <div class="form-group">        
+                      <div class="row">
+                        <div class="col">   
+                          <label><?php echo $resource['res_address']?></label>
+                          <textarea id="address" type="text" placeholder="<?php echo $resource['res_address']?>" class="form-control" name = "address" ><?php echo $model['address']?></textarea>
+                        </div>
+                        <div class="col"> 
+                          <label><?php echo $resource['res_yearofstudy']?></label>
+                          <input id="yearofstudy" type="number" placeholder="<?php echo $resource['res_yearofstudy']?>" class="form-control" name = "yearofstudy" value="<?php echo $model['yearofstudy']?>" required>
+                        </div>
+                      </div>
                     </div>
                     <div class="form-group">       
                       <input type="submit" value="<?php echo $resource['res_save']?>" class="btn btn-primary">
@@ -58,46 +88,6 @@
         </div>
       </section>
 
-<!-- modal -->
-<div id="modalGroupUser" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" class="modal fade text-left">
-  <div role="document" class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 id="exampleModalLabel" class="modal-title">Group User</h5>
-        <button type="button" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true">×</span></button>
-      </div>
-      <div id = "cardModalBody" class="card-body">
-        <div class="form-group row">
-          <div class="col-sm-12">
-            <div class="form-group">
-              <div class="input-group">
-                <input id = "searchInput" type="text" class="form-control" >
-                <div class="input-group-append">
-                  <button id = "searchbutton" type="button" class="btn btn-primary" onclick = "getModalGroup(1);">Search</button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="table-responsive">
-          <table id = "tblGroupUserLookUp" class="table table-striped table-hover">
-            <thead>
-              <tr>
-                <th>Group </th>
-              </tr>
-            </thead>
-            <tbody>
-            </tbody>
-          </table>
-        </div>
-      </div>
-      <!-- <div class="modal-footer">
-        <button type="button" data-dismiss="modal" class="btn btn-secondary">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
-      </div> -->
-    </div>
-  </div>
-</div>
 
 <script type = "text/javascript">
 
@@ -120,91 +110,9 @@
     ?>
   }
 
-  function getModalGroup(page)
-  {
-    removeModalGroupUserComponent();
-    var search = $('#searchInput').val();
-    $.ajax({
-      type: "POST",
-      url: "<?php echo base_url('M_groupuser/groupusermodal')?>",
-      data:{
-            page: page,
-            search : search
-          },
-      success:function(data){
-        var groupuser = $.parseJSON(data);
-        console.log(groupuser);
-        var detail = groupuser['m_groupuser']['modeldetailmodal'];
-        for(var i = 0; i < detail.length; i++)
-        {
-          $("#tblGroupUserLookUp").append("<tr onclick='chooseGroupName("+detail[i].Id+","+'"'+detail[i].GroupName+'"'+");'><td>" + detail[i].GroupName + "</td></tr>");
-        }
-
-        var previous = "";
-        var pages = "";
-        var next = "";
-        var append = "";
-        if(groupuser['m_groupuser']['currentpagemodal'] > 3)
-        {
-          previous += "<li class='page-item'>";
-          previous += "<a class='page-link' href='#' onclick = 'getModalGroup("+(groupuser['m_groupuser']['currentpagemodal']-1)+")' aria-label='Previous'>";
-          previous += "<span aria-hidden='true'>&laquo;</span>";
-          previous += "<span class='sr-only'>Previous</span>";
-          previous += "</a>" ;
-          previous += "</li>";
-        }
-
-        for (var i = groupuser['m_groupuser']['firstpagemodal'] ; i <= groupuser['m_groupuser']['lastpagemodal']; i++){
-          pages += " <li class='page-item' >";
-          pages += "<a class='page-link' href='#' onclick = 'getModalGroup("+i+")'>"+i+"</a>";
-          pages += "</li>";
-        }
-
-        if(groupuser['m_groupuser']['currentpagemodal'] < groupuser['m_groupuser']['totalpagemodal'] - 2)
-        {
-          next += "<li class='page-item'>";
-          next += "<a class='page-link' href='#' onclick = 'getModalGroup("+(1+groupuser['m_groupuser']['currentpagemodal'])+")' aria-label='Next'>";
-          next += "<span aria-hidden='true'>&raquo;</span>";
-          next += "<span class='sr-only'>Next</span>";
-          next += "</a>" ;
-          next += "</li>";
-        }
-
-        append += "<div id = 'modalGroupUserPaging' class='row'>";
-        append += "<div class = 'col-lg-6'>";
-        append += "<nav aria-label='Page navigation example'>";
-        append += "<ul class='pagination'>";
-        append += previous;
-        append += pages;
-        append += next;
-        append += "</ul>";
-        append += "</nav>";
-        append += "</div>";
-        append += "<div class = 'col-lg-6 icon-custom-table-header'>";
-        append +="Total Data : "+groupuser['m_groupuser']['totalrowmodal'];
-        append += "</div>";
-        append += "</div>";
-        
-        $("#cardModalBody").append(append);
-
-      }
-    });
-  };
-
-  function chooseGroupName(Id, Name)
-  {
-    $("#groupid").val(Id);
-    $("#groupname").val(Name);
-    $('#modalGroupUser').modal('hide');
-  }
-
-  $("#modalGroupUser").on('hidden.bs.modal', function(){
-    removeModalGroupUserComponent();
+  $('#dateofbirth').datepicker()
+  .on('changeDate', function(e) {
+        $('#dateofbirth').val(e.date.toLocaleDateString("id-ID"))
   });
 
-  function removeModalGroupUserComponent()
-  {
-    $("#tblGroupUserLookUp").find("tr:gt(0)").remove();
-    $("#modalGroupUserPaging").remove();
-  }
 </script>

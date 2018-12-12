@@ -7,7 +7,7 @@ class M_student extends CI_Controller {
         parent::__construct();
         $this->load->model(array('Mstudent_model','Mgroupuser_model'));
         $this->load->library(array('paging', 'session','helpers'));
-        $this->load->helper('form');
+        $this->load->helper(array('form','helpers'));
         $this->paging->is_session_set();
     }
 
@@ -106,15 +106,86 @@ class M_student extends CI_Controller {
     public function edit($id)
     {   
         // your edit method goes here
+        $form = $this->paging->get_form_name_id();
+        if($this->Mgroupuser_model->is_permitted($_SESSION['userdata']['groupid'],$form['m_student'],'Write'))
+        {
+            $resource = $this->Mstudent_model->set_resources();
+            $edit = $this->Mstudent_model->get_data_by_id($id);
+            $model = $this->Mstudent_model->create_object($edit->Id, $edit->Nis, $edit->Name, $edit->Address, $edit->PlaceOfBirth, 
+            formatDateString($edit->DateOfBirth), $edit->MotherName, $edit->FatherName,$edit->YearOfStudy, $edit->IOn, $edit->IBy, null, null);
+            $data =  $this->paging->set_data_page_edit($resource, $model);
+            //echo json_encode($edit);
+            $this->loadview('m_student/edit', $data);   
+        }
+        else{
+            $data['resource'] = $this->paging->set_resources_forbidden_page();
+            $this->load->view('forbidden/forbidden', $data);
+        }
     }
 
     public function editsave()
     {   
         // your editsave method goes here
+        $resource   = $this->Mstudent_model->set_resources();
+
+        $studentid = $this->input->post('idstudent');
+        $nis    = $this->input->post('nis');
+        $name   = $this->input->post('named');
+        $address  = $this->input->post('address');
+        $placeofbirth  = $this->input->post('placeofbirth');
+        $dateofbirth  = date("Y-m-d H:i:s", strtotime($this->input->post('dateofbirth')));
+        $mothername   = $this->input->post('mothername');
+        $fathername   = $this->input->post('fathername');
+        $yearofstudy   = $this->input->post('yearofstudy');
+
+        $edit       = $this->Mstudent_model->get_data_by_id($studentid);
+        $model      = $this->Mstudent_model->create_object($edit->Id, $nis, $name, $address, $placeofbirth, $dateofbirth, $mothername, $fathername, $yearofstudy, $edit->IOn, $edit->IBy, null , null);
+        $oldmodel   = $this->Mstudent_model->create_object($edit->Id, $edit->Nis, $edit->Name, $edit->Address, $edit->PlaceOfBirth, 
+                        formatDateString($edit->DateOfBirth), $edit->MotherName, $edit->FatherName,$edit->YearOfStudy, $edit->IOn, $edit->IBy, null, null);
+        
+        $modeltabel = $this->Mstudent_model->create_object_tabel($edit->Id, $nis, $name, $address, $placeofbirth, $dateofbirth, $mothername, $fathername, $yearofstudy, $edit->IOn, $edit->IBy, null , null);
+
+        $validate   = $this->Mstudent_model->validate($model, $oldmodel);
+ 
+        if($validate)
+        {
+            $this->session->set_flashdata('edit_warning_msg',$validate);
+            $data =  $this->paging->set_data_page_edit($resource, $model);
+            $this->loadview('m_user/edit', $data);   
+        }
+        else
+        {
+            $date = date("Y-m-d H:i:s");
+            $modeltabel['uon'] = $date;
+            $modeltabel['uby'] = $_SESSION['userdata']['username'];
+
+            $this->Mstudent_model->edit_data($modeltabel);
+            $successmsg = $this->paging->get_success_message();
+            $this->session->set_flashdata('success_msg', $successmsg);
+            redirect('mstudent');
+        }
     }
 
     public function delete($id){
         // your delete method goes here
+        $form = $this->paging->get_form_name_id();
+        if($this->Mgroupuser_model->is_permitted($_SESSION['userdata']['groupid'],$form['m_student'],'Delete'))
+        {
+            $delete = $this->Mstudent_model->delete_data($id);
+            if(isset($delete)){
+                $deletemsg = $this->helpers->get_query_error_message($delete['code']);
+                $this->session->set_flashdata('warning_msg', $deletemsg);
+            } else {
+                $deletemsg = $this->paging->get_delete_message();
+                $this->session->set_flashdata('delete_msg', $deletemsg);
+            }
+            redirect('mstudent');
+        }
+        else
+        {   
+            $data['resource'] = $this->paging->set_resources_forbidden_page();
+            $this->load->view('forbidden/forbidden', $data);
+        } 
 
     }
 

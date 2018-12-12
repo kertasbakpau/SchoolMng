@@ -42,13 +42,13 @@
                       <div class="row">
                         <div class="col">
                           <label><?php echo $resource['res_placeofbirth']?></label>
-                          <input id = "placeofbirth" placeholder="<?php echo $resource['res_placeofbirth']?>" type="text" class="form-control" name = "placeofbirth"  value="<?php echo $model['placeofbirth']?>">
+                          <input id = "placeofbirth" placeholder="<?php echo $resource['res_placeofbirth']?>" type="text" class="form-control" name = "placeofbirth"  value="<?php echo $model['placeofbirth']?>" required>
                         </div>
                         <div class="col">
                         <label><?php echo $resource['res_dateofbirth']?></label>
                           <!-- <input id="dateofbirth" type="text" placeholder="<?php echo $resource['res_dateofbirth']?>" class="form-control" name = "dateofborth" value=""> -->
                           <div class="input-group date"  id = "dateBirth">
-                            <input id = "dateofbirth" data-date-format="dd-mm-yyyy" readonly placeholder="<?php echo $resource['res_dateofbirth']?>" type="text" class="form-control" name = "dateofbirth" required>
+                            <input id = "dateofbirth" data-date-format="dd-mm-yyyy" readonly placeholder="<?php echo $resource['res_dateofbirth']?>" type="text" class="form-control" name = "dateofbirth" value="<?php echo $model['dateofbirth']?>" required>
                            </div>
                         </div>
                       </div>

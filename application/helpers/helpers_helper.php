@@ -12,6 +12,10 @@ function encryptMd5($string){
     return $newString;
 }
 
+function formatDateString($date){
+    return (string)date("d-m-Y",strtotime($date));
+}
+
 // function decryptMd5($hash){
 //     $lastestString = substr($string, strlen($string) - 2,1);
 //     $asci = ord($lastestString);
