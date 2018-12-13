@@ -102,8 +102,8 @@ class M_Worker extends CI_Controller {
         $religion = $this->input->post('religion');
         $address = $this->input->post('address');
         $telephone = $this->input->post('telephone');
-        $work_status = $this->input->post('work_status');
-        $model = $this->Mkelas_model->create_object(null, $classid, $nip, $name,$place_of_birth, $date_of_birth, $gender, $religion, $address, $telephone, $work_status, null, null, null, null);
+        $work_status = $this->input->post('worker_status');
+        $model = $this->MWorker_model->create_object(null, $classid, $nip, $name,$place_of_birth, $date_of_birth, $gender, $religion, $address, $telephone, $work_status, null, null, null, null);
 
         $validate = $this->MWorker_model->validate($model);
  

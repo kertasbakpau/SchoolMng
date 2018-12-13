@@ -92,7 +92,7 @@ class MWorker_model extends CI_Model {
             'religion' => $religion,
             'address' => $address,
             'telephone' => $telephone,
-            'work_status' => $work_status,
+            'worker_status' => $work_status,
             'ion' => $ion,
             'iby' => $iby,
             'ion' => $uon,
@@ -191,7 +191,7 @@ public function is_data_exist($name = null)
         $resource['res_module'] = $this->lang->line('ui_module');
 
         $resource['res_err_name_exist'] = $this->lang->line('err_msg_name_exist');
-        $resource['res_msg_nama_can_not_null'] = $this->lang->line('err_msg_nama_can_not_null');
+        $resource['res_msg_name_can_not_null'] = $this->lang->line('err_msg_name_can_not_null');
 
         return $resource;
     }

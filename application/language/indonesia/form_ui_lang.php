@@ -12,6 +12,7 @@ $lang['ui_user'] = "Pengguna";
 $lang['ui_master_groupuser'] = "Master Group User";
 $lang['ui_master_kelas'] = "Master Class";
 $lang['ui_master_worker'] = "Master Worker";
+$lang['ui_worker'] = " Master Worker";
 $lang['ui_group_user'] = "Grup Pengguna";
 $lang['ui_data'] = "Data";
 $lang['ui_add'] = "Tambah";
