@@ -28,9 +28,11 @@ function getEnumName($enumName, $enumValue){
     $CI->db->where('b.Value', $enumValue);
     $data = $CI->db->get()->row();
 
-    if($data){
+    //return $data->Resource;
+    if(isset($data)){
         if(isset($data->Resource)){
-            return $CI->lang->line($data->Resource);
+            $newStr = str_replace("res","ui",$data->Resource);
+            return $CI->lang->line($newStr);
         } else {
             return $data->EnumName;
         }

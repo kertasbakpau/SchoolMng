@@ -59,8 +59,8 @@ $lang['ui_headfamilyname'] = "Kepala Keluarga";
 $lang['ui_dateofbirth'] = "Tanggal Lahir";
 $lang['ui_placeofbirth'] = "Tempat Lahir";
 
-$lang['ui_male'] = "Male";
-$lang['ui_female'] = "Female";
+$lang['ui_male'] = "Laki - Laki";
+$lang['ui_female'] = "Perempuan";
 $lang['ui_islam'] = "Islam";
 $lang['ui_kristen'] = "Kristen";
 $lang['ui_katholik'] = "Katholik";
