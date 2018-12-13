@@ -1,8 +1,4 @@
 
-<?php 
-  $CI =& get_instance();
-  $CI->load->library("helpers");
-?>
 <!DOCTYPE html>
 <html>
   <head>
