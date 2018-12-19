@@ -133,7 +133,7 @@ class M_Worker extends CI_Controller {
         {
             $resource = $this->MWorker_model->set_resources();
             $edit = $this->MWorker_model->get_data_by_id($id);
-            $model = $this->MWorker_model->create_object($edit->Id, $edit->ClassId,$edit->NIP,$edit->Name,$edit->Place_of_Birth,$edit->Date_of_Birth,$edit->Gender,$edit->Religion,$edit->Address,$edit->Telephone,$edit->Work_Status, null, null, null, null);
+            $model = $this->MWorker_model->create_object($edit->Id, $edit->ClassId,$edit->NIP,$edit->Name,$edit->Place_of_birth,$edit->Date_of_birth,$edit->Gender,$edit->Religion,$edit->Address,$edit->Telephone,$edit->Worker_Status, null, null, null, null);
             $data =  $this->paging->set_data_page_edit($resource, $model);
             $this->loadview('m_worker/edit', $data);  
         }
