@@ -27,9 +27,21 @@ class MWorker_model extends CI_Model {
     }
 
     public function get_alldata(){
-        // get all data
-        $query = $this->db->get('m_worker');
-        return $query->result();
+        // $query = $this->db->get('m_worker');
+        // return $query->result();
+        return  $this->db->select('*')
+                     ->from('m_worker')
+                     ->join('m_enumdetail','m_enumdetail.Value=m_worker.ClassId')
+                     ->get()
+                     ->result();
+
+
+
+
+
+
+
+
     }
 
      public function get_data_by_id($id)
@@ -79,7 +91,7 @@ class MWorker_model extends CI_Model {
         }
     }
 
-    public function create_object($id, $classid, $nip, $name,$place_of_birth, $date_of_birth,$gender, $religion, $address, $telephone, $work_status, $ion, $iby, $uon, $uby){
+    public function create_object($id, $classid, $nip, $name,$place_of_birth, $date_of_birth, $gender, $religion, $address, $telephone, $work_status, $ion, $iby, $uon, $uby){
         // create object goes here
         $data = array(
             'id' => $id,
@@ -92,7 +104,7 @@ class MWorker_model extends CI_Model {
             'religion' => $religion,
             'address' => $address,
             'telephone' => $telephone,
-            'work_status' => $work_status,
+            'worker_status' => $work_status,
             'ion' => $ion,
             'iby' => $iby,
             'ion' => $uon,
@@ -101,6 +113,33 @@ class MWorker_model extends CI_Model {
 
         return $data;
     }
+
+
+    public function create_object_table($id, $classid, $nip, $name,$place_of_birth, $date_of_birth, $gender, $religion, $address, $telephone, $work_status, $ion, $iby, $uon, $uby)
+    {
+        
+        $data = array(
+            'id'        => $id,
+            'classid'   => $classid,
+            'nip'       => $nip,
+            'name'      => $name,
+            'place_of_birth' => $place_of_birth,
+            'date_of_birth' => $date_of_birth,
+            'gender' => $gender,
+            'religion' => $religion,
+            'address' => $address,
+            'telephone' => $telephone,
+            'worker_status' => $work_status,
+            'ion' => $ion,
+            'iby' => $iby,
+            'ion' => $uon,
+            'uby' => $uby,
+        );
+
+        return $data;
+    }
+
+
 
 public function is_data_exist($name = null)
     {

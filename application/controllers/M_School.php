@@ -75,7 +75,7 @@ class M_School extends CI_Controller {
         $namasekolah    = $this->input->post('named');
         $alamat 	    = $this->input->post('addres');
         //echo  $username;
-        $model  	= $this->Mschool_model->create_object(null, $namasekolah, $alamat, null, null, null, null);
+        $model  	= $this->Mschool_model->create_object      (null, $namasekolah, $alamat, null, null, null, null);
         $modeltabel = $this->Mschool_model->create_object_tabel(null, $namasekolah, $alamat, null, null, null , null);
 
         $validate 	= $this->Mschool_model->validate($model);

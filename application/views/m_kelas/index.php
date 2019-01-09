@@ -21,7 +21,7 @@
 										<div class = "col-lg-10">
 											<h4><?php echo  $resource['res_data']?></h4>
 										</div>
-										<div class = "col-lg-2 icon-custom-table-header"><a href="<?php echo base_url('mkelas/add');?>"><i class="fa fa-plus"></i> <?php echo $resource['res_add']?></a></div>
+										<div class = "col-lg-2 icon-custom-table-header"><a href="<?php echo base_url('mclass/add');?>"><i class="fa fa-plus"></i> <?php echo $resource['res_add']?></a></div>
 									</div>
 								</div>
                 <div class="card-body">
@@ -53,7 +53,7 @@
 													<tr>
 														<td><?php echo $value->Nama?></td>
 														<td class = "icon-custom-table-header">
-															<a class = "icon-custom-table-detail" href="<?php echo base_url('mkelas/edit/').$value->Id;?>"><i class="fa fa-edit"></i><?php echo  $resource['res_edit']?></a>
+															<a class = "icon-custom-table-detail" href="<?php echo base_url('mclass/edit/').$value->Id;?>"><i class="fa fa-edit"></i><?php echo  $resource['res_edit']?></a>
 															<a class = "icon-custom-table-detail" href="javascript:void(0);" onclick="delete_disaster('<?php echo $value->Id?>','<?php echo $value->Nama?>')"><i class="fa fa-trash"></i><?php echo  $resource['res_delete']?></a>
 														</td>
 													</tr>
@@ -72,7 +72,7 @@
                           {
                           ?>
                           <li class="page-item">
-                            <a class="page-link" href="<?php echo base_url('m_kelas');?>?page=<?php echo $currentpage-1?>&search=<?php echo $search?>#cardtabel" aria-label="Previous">
+                            <a class="page-link" href="<?php echo base_url('m_class');?>?page=<?php echo $currentpage-1?>&search=<?php echo $search?>#cardtabel" aria-label="Previous">
                               <span aria-hidden="true">&laquo;</span>
                               <span class="sr-only">Previous</span>
                             </a>
@@ -92,7 +92,7 @@
                             } else {
                             ?>
                             <li class="page-item">
-                              <a class="page-link" href="<?php echo base_url('m_kelas');?>?page=<?php echo $i?>&search=<?php echo $search?>#cardtabel"><?php echo $i?></a>
+                              <a class="page-link" href="<?php echo base_url('m_class');?>?page=<?php echo $i?>&search=<?php echo $search?>#cardtabel"><?php echo $i?></a>
                             </li>
                             <?php
                             }
@@ -104,7 +104,7 @@
                           {
                           ?>
                           <li class="page-item">
-                            <a class="page-link" href="<?php echo base_url('m_kelas');?>?page=<?php echo $currentpage+1?>&search=<?php echo $search?>#cardtabel" aria-label="Next">
+                            <a class="page-link" href="<?php echo base_url('m_class');?>?page=<?php echo $currentpage+1?>&search=<?php echo $search?>#cardtabel" aria-label="Next">
                               <span aria-hidden="true">&raquo;</span>
                               <span class="sr-only">Next</span>
                             </a>
@@ -178,7 +178,7 @@ $(document).ready(function() {
   function delete_disaster(id, name){
     deleteData(name, function(result){
       if (result==true)
-        window.location = "<?php echo base_url('mkelas/delete/');?>" + id;
+        window.location = "<?php echo base_url('m_kelas/delete/');?>" + id;
     });
   } 
 </script>

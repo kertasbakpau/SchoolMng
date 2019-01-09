@@ -69,9 +69,9 @@ class M_Worker extends CI_Controller {
         if($this->Mgroupuser_model->is_permitted($_SESSION['userdata']['groupid'],$form['m_groupuser'],'Write'))
         {
             $enum =  $this->paging->get_enum_name();
-            $enums['genderenum'] = $this->Menum_model->get_data_by_id($enum['gender']);
-            $enums['religionenum'] = $this->Menum_model->get_data_by_id($enum['religion']);
-            $enums['workstatusenum'] = $this->Menum_model->get_data_by_id($enum['WorkStatus']);
+            $enums['genderenum']        = $this->Menum_model->get_data_by_id($enum['gender']);
+            $enums['religionenum']      = $this->Menum_model->get_data_by_id($enum['religion']);
+            $enums['workstatusenum']    = $this->Menum_model->get_data_by_id($enum['WorkStatus']);
             $resource = $this->MWorker_model->set_resources();
             $model = $this->MWorker_model->create_object(null, null, null, null, null,  null, null, null, null, null, null, null, null, null, null);
             $data =  $this->paging->set_data_page_add($resource, $model,$enums);
@@ -88,22 +88,26 @@ class M_Worker extends CI_Controller {
 
     public function addsave()
     {   
+
+
         // your addsave method goes here
         $warning = array();
         $err_exist = false;
         $resource = $this->MWorker_model->set_resources();
 
-        $classid = $this->input->post('classid');
-        $nip = $this->input->post('nip');
-        $name = $this->input->post('name');
+        $classid        = $this->input->post('ClassId');
+        $nip            = $this->input->post('nip');
+        $name           = $this->input->post('named');
         $place_of_birth = $this->input->post('place_of_birth');
-        $date_of_birth = $this->input->post('date_of_birth');
-        $gender = $this->input->post('gender');
-        $religion = $this->input->post('religion');
-        $address = $this->input->post('address');
-        $telephone = $this->input->post('telephone');
-        $work_status = $this->input->post('work_status');
-        $model = $this->Mkelas_model->create_object(null, $classid, $nip, $name,$place_of_birth, $date_of_birth, $gender, $religion, $address, $telephone, $work_status, null, null, null, null);
+        $date_of_birth  = $this->input->post('date_of_birth');
+        $gender         = $this->input->post('gender');
+        $religion       = $this->input->post('religion');
+        $address        = $this->input->post('address');
+        $telephone      = $this->input->post('telephone');
+        $work_status    = $this->input->post('work_status');
+
+        $model          = $this->MWorker_model->create_object       (null, $classid, $nip, $name, $place_of_birth, $date_of_birth, $gender, $religion, $address, $telephone, $work_status, null, null, null, null);
+        $modeltable     = $this->MWorker_model->create_object_table (null, $classid, $nip, $name, $place_of_birth, $date_of_birth, $gender, $religion, $address, $telephone, $work_status, null, null, null, null);
 
         $validate = $this->MWorker_model->validate($model);
  

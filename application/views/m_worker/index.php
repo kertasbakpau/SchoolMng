@@ -62,12 +62,12 @@
                             <td><?php echo $value->ClassId?></td>
                             <td><?php echo $value->NIP?></td>
 														<td><?php echo $value->Name?></td>
-                            <td><?php echo $value->Place_of_Birth?>,<?php echo $value->Date_of_Birth?></td>
+                            <td><?php echo $value->Place_of_birth?>,<?php echo $value->Date_of_birth?></td>
                             <td><?php echo $value->Gender?></td>
                             <td><?php echo $value->Religion?></td>
                             <td><?php echo $value->Address?></td>
                             <td><?php echo $value->Telephone?></td>
-                            <td><?php echo $value->Work_Status?></td>
+                            <td><?php echo $value->Worker_Status?></td>
 														<td class = "icon-custom-table-header">
 															<a class = "icon-custom-table-detail" href="<?php echo base_url('mworker/edit/').$value->Id;?>"><i class="fa fa-edit"></i><?php echo  $resource['res_edit']?></a>
 															<a class = "icon-custom-table-detail" href="javascript:void(0);" onclick="delete_disaster('<?php echo $value->Id?>','<?php echo $value->Name?>')"><i class="fa fa-trash"></i><?php echo  $resource['res_delete']?></a>

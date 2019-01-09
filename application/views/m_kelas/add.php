@@ -21,7 +21,7 @@
                     <div class = "col-lg-10">
                       <h4><?php echo $resource['res_add_data']?></h4> 
                     </div>
-                    <div class = "col-lg-2 icon-custom-table-header"><a href="<?php echo base_url('mkelas');?>"><i class="fa fa-table"></i> Index</a></div>
+                    <div class = "col-lg-2 icon-custom-table-header"><a href="<?php echo base_url('mclass');?>"><i class="fa fa-table"></i> Index</a></div>
                   </div>
                 </div>
                 <div class="card-body">
@@ -38,7 +38,7 @@
                   ?>
                     <!-- <p class="text-danger"><?php echo $this->session->flashdata('warning_msg_name_exist'); ?></p> -->
                  
-                  <form method = "post" action = "<?php echo base_url('mkelas/addsave');?>">
+                  <form method = "post" action = "<?php echo base_url('mclass/addsave');?>">
                     <div class="form-group">
                       <label><?php echo $resource['res_name']?></label>
                       <input id="named" type="text" placeholder="<?php echo $resource['res_name']?>" class="form-control" name = "named" value="<?php echo $model['nama']?>" required> 

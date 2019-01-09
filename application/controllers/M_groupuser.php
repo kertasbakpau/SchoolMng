@@ -48,7 +48,7 @@ class M_groupuser extends CI_Controller
 
     public function groupusermodal()
     {
-        $page = $this->input->post("page");
+        $page   = $this->input->post("page");
         $search = $this->input->post("search");
 
         $pagesize = $this->paging->get_config();
