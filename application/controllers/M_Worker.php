@@ -99,6 +99,7 @@ class M_Worker extends CI_Controller {
         $nip            = $this->input->post('nip');
         $name           = $this->input->post('named');
         $place_of_birth = $this->input->post('place_of_birth');
+
         $date_of_birth  = $this->input->post('date_of_birth');
         $gender         = $this->input->post('gender');
         $religion       = $this->input->post('religion');
@@ -108,6 +109,15 @@ class M_Worker extends CI_Controller {
 
         $model          = $this->MWorker_model->create_object       (null, $classid, $nip, $name, $place_of_birth, $date_of_birth, $gender, $religion, $address, $telephone, $work_status, null, null, null, null);
         $modeltable     = $this->MWorker_model->create_object_table (null, $classid, $nip, $name, $place_of_birth, $date_of_birth, $gender, $religion, $address, $telephone, $work_status, null, null, null, null);
+
+        $date_of_birth = $this->input->post('date_of_birth');
+        $gender = $this->input->post('gender');
+        $religion = $this->input->post('religion');
+        $address = $this->input->post('address');
+        $telephone = $this->input->post('telephone');
+        $work_status = $this->input->post('worker_status');
+        $model = $this->MWorker_model->create_object(null, $classid, $nip, $name,$place_of_birth, $date_of_birth, $gender, $religion, $address, $telephone, $work_status, null, null, null, null);
+
 
         $validate = $this->MWorker_model->validate($model);
  
@@ -137,7 +147,7 @@ class M_Worker extends CI_Controller {
         {
             $resource = $this->MWorker_model->set_resources();
             $edit = $this->MWorker_model->get_data_by_id($id);
-            $model = $this->MWorker_model->create_object($edit->Id, $edit->ClassId,$edit->NIP,$edit->Name,$edit->Place_of_Birth,$edit->Date_of_Birth,$edit->Gender,$edit->Religion,$edit->Address,$edit->Telephone,$edit->Work_Status, null, null, null, null);
+            $model = $this->MWorker_model->create_object($edit->Id, $edit->ClassId,$edit->NIP,$edit->Name,$edit->Place_of_birth,$edit->Date_of_birth,$edit->Gender,$edit->Religion,$edit->Address,$edit->Telephone,$edit->Worker_Status, null, null, null, null);
             $data =  $this->paging->set_data_page_edit($resource, $model);
             $this->loadview('m_worker/edit', $data);  
         }

@@ -35,13 +35,6 @@ class MWorker_model extends CI_Model {
                      ->get()
                      ->result();
 
-
-
-
-
-
-
-
     }
 
      public function get_data_by_id($id)
@@ -57,12 +50,13 @@ class MWorker_model extends CI_Model {
     public function get_datapages($page, $pagesize, $search = null){  
         // your datapages
         $this->db->select('*');
-        $this->db->from('m_worker');
+        $this->db->from('m_worker as a');
+        $this->db->join('m_kelas as b', 'a.ClassId = b.Id', 'left');
         if(!empty($search))
         {
-            $this->db->like('Name', $search);
+            $this->db->like('a.Name', $search);
         }
-        $this->db->order_by('Ion','ASC');
+        $this->db->order_by('a.Ion','ASC');
         $this->db->limit($pagesize, ($page-1)*$pagesize);
         $query = $this->db->get();
 
@@ -105,6 +99,7 @@ class MWorker_model extends CI_Model {
             'address' => $address,
             'telephone' => $telephone,
             'worker_status' => $work_status,
+
             'ion' => $ion,
             'iby' => $iby,
             'ion' => $uon,
@@ -217,6 +212,9 @@ public function is_data_exist($name = null)
         $resource['res_hindu'] = $this->lang->line('ui_hindu');
         $resource['res_budha'] = $this->lang->line('ui_budha');
         $resource['res_none'] = $this->lang->line('ui_none');
+        $resource['res_teacher'] = $this->lang->line('ui_teacher');
+        $resource['res_admin'] = $this->lang->line('ui_admin');
+        $resource['res_other'] = $this->lang->line('ui_other');
         $resource['res_edit'] = $this->lang->line('ui_edit');
         $resource['res_delete'] =$this->lang->line('ui_delete');
         $resource['res_search'] = $this->lang->line('ui_search');
@@ -230,7 +228,7 @@ public function is_data_exist($name = null)
         $resource['res_module'] = $this->lang->line('ui_module');
 
         $resource['res_err_name_exist'] = $this->lang->line('err_msg_name_exist');
-        $resource['res_msg_nama_can_not_null'] = $this->lang->line('err_msg_nama_can_not_null');
+        $resource['res_msg_name_can_not_null'] = $this->lang->line('err_msg_name_can_not_null');
 
         return $resource;
     }

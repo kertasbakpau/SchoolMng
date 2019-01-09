@@ -12,6 +12,24 @@ class M_kelas extends CI_Controller
         $this->paging->is_session_set();
     }
 
+    public function groupclassmodal()
+    {
+        $page = $this->input->post("page");
+        $search = $this->input->post("search");
+
+        $pagesize = $this->paging->get_config();
+        $resultdata = $this->Mkelas_model->get_alldata();
+        $datapages = $this->Mkelas_model->get_datapages($page,  $pagesize['perpagemodal'], $search);
+        $rows = !empty($search) ? count($datapages) : count($resultdata);
+
+        $resource = $this->Mkelas_model->set_resources();
+
+        $data =  $this->paging->set_data_page_modal($resource, $datapages, $rows, $page, $search, null, 'm_kelas');      
+        
+        echo json_encode($data);
+    }
+
+
     public function index()
     {
         //echo $_SESSION['userdata']['username'];

@@ -30,9 +30,71 @@
                     <input hidden = "true" name="id" value="<?php echo $model['id']?>"/> 
 
                     <div class="form-group">
-                      <label><?php echo $resource['res_name']?></label>
-                      <input id="named" type="text" placeholder="<?php echo $resource['res_name']?>" class="form-control" name = "named" value="<?php echo $model['nama']?>" required>
+                      <div class="row">
+                        <div class="col">
+                      <label><?php echo $resource['res_classid']?></label>
+                      <input id="classid" type="text" placeholder="<?php echo $resource['res_classid']?>" class="form-control" name = "classid" value="<?php echo $model['classid']?>" required>
                     </div>
+
+                    <div class="col">
+                      <label><?php echo $resource['res_nip']?></label>
+                      <input id="nip" type="text" placeholder="<?php echo $resource['res_nip']?>" class="form-control" name = "nip" value="<?php echo $model['nip']?>" required>
+                    </div>
+                    </div>
+                    </div>
+
+                    <div class="form-group">
+                      <label><?php echo $resource['res_name']?></label>
+                      <input id="name" type="text" placeholder="<?php echo $resource['res_name']?>" class="form-control" name = "name" value="<?php echo $model['name']?>" required>
+                    </div>
+
+                    <div class="form-group">
+                      <div class="row">
+                        <div class="col">
+                      <label><?php echo $resource['res_place_of_birth']?></label>
+                      <input id="place_of_birth" type="text" placeholder="<?php echo $resource['res_place_of_birth']?>" class="form-control" name = "place_of_birth" value="<?php echo $model['place_of_birth']?>" required>
+                    </div>
+
+                    <div class="col">
+                      <label><?php echo $resource['res_date_of_birth']?></label>
+                      <input id="date_of_birth" type="text" placeholder="<?php echo $resource['res_date_of_birth']?>" class="form-control" name = "date_of_birth" value="<?php echo $model['date_of_birth']?>" required>
+                    </div>
+                    </div>
+                    </div>                  
+
+                    <div class="form-group">
+                      <div class="row">
+                        <div class="col">
+                      <label><?php echo $resource['res_gender']?></label>
+                      <input id="gender" type="text" placeholder="<?php echo $resource['res_gender']?>" class="form-control" name = "gender" value="<?php echo $model['gender']?>" required>
+                    </div>
+
+                    <div class="col">
+                      <label><?php echo $resource['res_religion']?></label>
+                      <input id="religion" type="text" placeholder="<?php echo $resource['res_religion']?>" class="form-control" name = "religion" value="<?php echo $model['religion']?>" required>
+                    </div>
+                    </div>
+                    </div> 
+
+                    <div class="form-group">
+                      <label><?php echo $resource['res_address']?></label>
+                      <input id="address" type="text" placeholder="<?php echo $resource['res_address']?>" class="form-control" name = "address" value="<?php echo $model['address']?>" required>
+                    </div>
+
+                    <div class="form-group">
+                      <div class="row">
+                        <div class="col">
+                      <label><?php echo $resource['res_telephone']?></label>
+                      <input id="telephone" type="text" placeholder="<?php echo $resource['res_telephone']?>" class="form-control" name = "telephone" value="<?php echo $model['telephone']?>" required>
+                    </div>
+
+                    <div class="col">
+                      <label><?php echo $resource['res_work_status']?></label>
+                      <input id="worker_status" type="text" placeholder="<?php echo $resource['res_work_status']?>" class="form-control" name = "worker_status" value="<?php echo $model['worker_status']?>" required>
+                    </div>
+                    </div>
+                    </div>
+
                     <div class="form-group">       
                       <input type="submit" value="<?php echo $resource['res_save']?>" class="btn btn-primary">
                     </div>

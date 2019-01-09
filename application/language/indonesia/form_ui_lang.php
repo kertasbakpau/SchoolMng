@@ -12,6 +12,7 @@ $lang['ui_user'] = "Pengguna";
 $lang['ui_master_groupuser'] = "Master Group User";
 $lang['ui_master_kelas'] = "Master Class";
 $lang['ui_master_worker'] = "Master Worker";
+$lang['ui_worker'] = " Master Worker";
 $lang['ui_group_user'] = "Grup Pengguna";
 $lang['ui_data'] = "Data";
 $lang['ui_add'] = "Tambah";
@@ -19,7 +20,7 @@ $lang['ui_edit'] = "Edit";
 $lang['ui_delete'] = "Hapus";
 $lang['ui_name'] = "Nama";
 $lang['ui_name1'] = "Name";
-$lang['ui_classid'] = "Class Id";
+$lang['ui_classid'] = "Class Name";
 $lang['ui_nip'] = "NIP";
 $lang['ui_place_of_birth'] = "Place, Date of Birth";
 $lang['ui_place_of_birth1'] = "Place of Birth";
@@ -58,14 +59,18 @@ $lang['ui_headfamilyname'] = "Kepala Keluarga";
 $lang['ui_dateofbirth'] = "Tanggal Lahir";
 $lang['ui_placeofbirth'] = "Tempat Lahir";
 
-$lang['ui_male'] = "Male";
-$lang['ui_female'] = "Female";
+$lang['ui_male'] = "Laki - Laki";
+$lang['ui_female'] = "Perempuan";
 $lang['ui_islam'] = "Islam";
 $lang['ui_kristen'] = "Kristen";
 $lang['ui_katholik'] = "Katholik";
 $lang['ui_hindu'] = "Hindu";
 $lang['ui_budha'] = "Budha";
 $lang['ui_none'] = "None";
+
+$lang['ui_teacher'] = "Teacher";
+$lang['ui_admin'] = "Administrator";
+$lang['ui_other'] = "Other";
 
 $lang['ui_lasteducation'] = "Pendidikan Terakhir";
 $lang['ui_job'] = "Pekerjaan";
