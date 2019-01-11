@@ -30,6 +30,7 @@ class Paging {
         $data["gender"] = 2;
         $data["religion"] = 3;
         $data["WorkStatus"] = 4;
+        $data["Days"] = 5;
         return $data;
     }
 

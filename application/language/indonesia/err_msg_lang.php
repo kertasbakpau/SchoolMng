@@ -23,3 +23,7 @@ $lang['err_msg_fromtouom_can_not_null'] = "Dari Ukuran dan Ke Ukuran tidak boleh
 $lang['err_msg_receivedate_cannot_null'] = "Tanggal Terima tidak boleh kosong";
 $lang['err_msg_nis_exist'] = "NIS Sudah Ada !";
 $lang['err_msg_nis_can_not_null'] = "NIS tidak boleh kosong";
+
+// m_schedule
+$lang['err_msg_time_can_not_same'] 		= "Jam Tabrakan!";
+$lang['err_msg_teacher_can_not_same'] 	= "Guru Tabrakan!";

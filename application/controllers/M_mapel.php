@@ -166,6 +166,28 @@ class M_mapel extends CI_Controller {
 	}
 
 
+
+	public function mapelModal()
+	{
+		$page 		= $this->input->post("page");
+		$search 	= $this->input->post("search");
+
+		$pagesize 	= $this->paging->get_config();
+		$resultdata = $this->Mmapel_model->get_alldata();
+		$datapages 	= $this->Mmapel_model->get_datapages($page, $pagesize['perpagemodal'], $search);
+		$rows 		= !empty($search) ? count($datapages) : count($resultdata);
+
+		$resource 	= $this->Mmapel_model->set_resources();
+
+		$data 		= $this->paging->set_data_page_modal($resource, $datapages, $rows, $page, $search, null, 'm_mapel');
+
+		echo json_encode($data);
+
+	}
+
+
+
+
 	private function loadview($viewName, $data){
 		$this->paging->load_header();
 		$this->load->view($viewName, $data);

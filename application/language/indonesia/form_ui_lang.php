@@ -20,7 +20,7 @@ $lang['ui_edit'] = "Edit";
 $lang['ui_delete'] = "Hapus";
 $lang['ui_name'] = "Nama";
 $lang['ui_name1'] = "Name";
-$lang['ui_classid'] = "Class Name";
+$lang['ui_classid'] = "Class Id";
 $lang['ui_nip'] = "NIP";
 $lang['ui_place_of_birth'] = "Place, Date of Birth";
 $lang['ui_place_of_birth1'] = "Place of Birth";
@@ -67,10 +67,6 @@ $lang['ui_katholik'] = "Katholik";
 $lang['ui_hindu'] = "Hindu";
 $lang['ui_budha'] = "Budha";
 $lang['ui_none'] = "None";
-
-$lang['ui_teacher'] = "Teacher";
-$lang['ui_admin'] = "Administrator";
-$lang['ui_other'] = "Other";
 
 $lang['ui_lasteducation'] = "Pendidikan Terakhir";
 $lang['ui_job'] = "Pekerjaan";
@@ -172,3 +168,28 @@ $lang['ui_placeofborth'] = "Tempat Lahir";
 $lang['ui_mothername'] = "Nama Ibu";
 $lang['ui_fathername'] = "Nama Ayah";
 $lang['ui_yearofstudy'] = "Tahun Masuk";
+
+
+// M_Worker
+
+$lang['ui_teacher'] 	= "Guru";
+$lang['ui_admin'] 		= 'Administrator';
+$lang['ui_other'] 		= 'Lain-Lain';
+
+// M_Schedule
+$lang['ui_master_schedule']	= "Master Jadwal Pelajaran";
+$lang['ui_day']			= "Hari";
+$lang['ui_sunday']		= "Minggu";
+$lang['ui_monday']		= 'Senin';
+$lang['ui_tuesday']		= 'Selasa';
+$lang['ui_wednesday']	= 'Rabu';
+$lang['ui_thursday']	= 'Kamis';
+$lang['ui_friday']		= "Jum'at";
+$lang['ui_saturday']	= 'Sabtu';
+
+$lang['ui_start_time'] 	= 'Jam Mulai';
+$lang['ui_end_time'] 	= 'Jam Selesai';
+$lang['ui_time']		= 'Jam';
+
+
+
