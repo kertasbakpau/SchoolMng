@@ -50,7 +50,7 @@
                           <th><?php echo  $resource['res_address']?></th>
                           <th><?php echo  $resource['res_telephone']?></th>
                           <th><?php echo  $resource['res_work_status']?></th>
-                          <th></th>
+                          <th>Action</th>
                         </tr>
                       </thead>
                       <tbody>

@@ -29,12 +29,15 @@ class MWorker_model extends CI_Model {
     public function get_alldata(){
         // $query = $this->db->get('m_worker');
         // return $query->result();
-        return  $this->db->select('*')
-                     ->from('m_worker')
-                     ->join('m_enumdetail','m_enumdetail.Value=m_worker.ClassId')
-                     ->get()
-                     ->result();
 
+        $query = $this->db->get('m_worker');
+        return $query->result();
+
+        // return  $this->db->select('*')
+        //              ->from('m_worker')
+        //              ->join('m_enumdetail','m_enumdetail.Value=m_worker.ClassId')
+        //              ->get()
+        //              ->result();
     }
 
      public function get_data_by_id($id)

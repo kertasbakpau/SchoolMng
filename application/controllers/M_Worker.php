@@ -128,13 +128,18 @@ class M_Worker extends CI_Controller {
     public function edit($id)
     {   
         // your edit method goes here
+
         $form = $this->paging->get_form_name_id();
         if($this->Mgroupuser_model->is_permitted($_SESSION['userdata']['groupid'],$form['m_groupuser'],'Write'))
         {
+            $enum =  $this->paging->get_enum_name();
+            $enums['genderenum'] = $this->Menum_model->get_data_by_id($enum['gender']);
+            $enums['religionenum'] = $this->Menum_model->get_data_by_id($enum['religion']);
+            $enums['workstatusenum'] = $this->Menum_model->get_data_by_id($enum['WorkStatus']);
             $resource = $this->MWorker_model->set_resources();
             $edit = $this->MWorker_model->get_data_by_id($id);
-            $model = $this->MWorker_model->create_object($edit->Id, $edit->ClassId,$edit->NIP,$edit->Name,$edit->Place_of_Birth,$edit->Date_of_Birth,$edit->Gender,$edit->Religion,$edit->Address,$edit->Telephone,$edit->Work_Status, null, null, null, null);
-            $data =  $this->paging->set_data_page_edit($resource, $model);
+            $model = $this->MWorker_model->create_object($edit->Id, $edit->ClassId,$edit->NIP,$edit->Name,$edit->Place_of_birth,$edit->Date_of_birth,$edit->Gender,$edit->Religion,$edit->Address,$edit->Telephone,$edit->Worker_Status, $edit->IOn, $edit->IBy, null, null);
+            $data =  $this->paging->set_data_page_edit($resource, $model, $enums);
             $this->loadview('m_worker/edit', $data);  
         }
         else
@@ -158,11 +163,11 @@ class M_Worker extends CI_Controller {
         $religion = $this->input->post('religion');
         $address = $this->input->post('address');
         $telephone = $this->input->post('telephone');
-        $work_status = $this->input->post('work_status');
+        $worker_status = $this->input->post('work_status');
 
         $edit = $this->MWorker_model->get_data_by_id($this->input->post('id'));
-        $model = $this->MWorker_model->create_object($edit->Id, $classid,$nip,$name,$place_of_birth,$date_of_birth,$gender,$religion,$address,$telephone,$work_status, $edit->IOn, $edit->IBy, null , null);
-        $oldmodel = $this->MWorker_model->create_object($edit->Id, $edit->ClassId,$edit->NIP,$edit->Name,$edit->Place_of_Birth,$edit->Date_of_Birth,$edit->Gender,$edit->Religion,$edit->Address,$edit->Telephone,$edit->Work_Status, $edit->IOn, $edit->IBy, $edit->UOn , $edit->UBy);
+        $model = $this->MWorker_model->create_object($edit->id, $classid,$nip,$name,$place_of_birth,$date_of_birth,$gender,$religion,$address,$telephone,$worker_status, $edit->IOn, $edit->IBy, null , null);
+        $oldmodel = $this->MWorker_model->create_object($edit->id, $edit->classid,$edit->nip,$edit->name,$edit->place_of_birth,$edit->date_of_birth,$edit->gender,$edit->religion,$edit->address,$edit->telephone,$edit->worker_status, $edit->IOn, $edit->IBy, $edit->UOn , $edit->UBy);
 
         $validate = $this->MWorker_model->validate($model, $oldmodel);
         if($validate)
